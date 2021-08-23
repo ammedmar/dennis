@@ -1,0 +1,28 @@
+\documentclass{amsart}
+\include{aux/style}
+\include{aux/usualcmds}
+\include{aux/commands}
+
+\title[Short title]{Full title}
+
+\author[A.~Medina-Mardones]{Anibal~M.~Medina-Mardones}
+\address{A.M-M., Max Planck Institute for Mathematics \and University of Notre Dame}
+\email{\href{mailto:ammedmar@mpim-bonn.mpg.de}{ammedmar@mpim-bonn.mpg.de}}
+
+\date{\today}
+\subjclass[2020]{.}
+\keywords{.}
+
+\begin{document}
+	\input{aux/abstract}
+
+	\maketitle
+
+	\input{sec/introduction}
+	\input{aux/acknowledgment}
+	\input{sec/preliminaries}
+	\input{sec/section}
+
+	\nocite{*}
+	\printbibliography
+\end{document}

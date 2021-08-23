@@ -1,0 +1,81 @@
+\usepackage{tikz-cd}
+\usepackage{amssymb}
+
+% bibliography
+\usepackage[backend=biber,
+style=alphabetic,
+backref=true,
+url=false,
+doi=false,
+eprint=false,
+isbn=false]{biblatex}
+
+\renewbibmacro{in:}{}
+
+\addbibresource{aux/bibliography.bib}
+\addbibresource{aux/usualpapers.bib}
+\addbibresource{aux/mypapers.bib}
+
+\DeclareFieldFormat{title}{\myhref{\mkbibemph{#1}}}
+\DeclareFieldFormat
+[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+{title}{\myhref{\mkbibquote{#1\isdot}}}
+
+\newcommand{\doiorurl}{%
+	\iffieldundef{url}
+	{\iffieldundef{eprint}
+		{}
+		{http://arxiv.org/abs/\strfield{eprint}}}
+	{\strfield{url}}%
+}
+
+\newcommand{\myhref}[1]{%
+	\ifboolexpr{%
+		test {\ifhyperref}
+		and
+		not test {\iftoggle{bbx:eprint}}
+		and
+		not test {\iftoggle{bbx:url}}
+	}
+	{\href{\doiorurl}{#1}}
+	{#1}%
+}
+
+% references
+\usepackage[bookmarks=true,
+linktocpage=true,
+bookmarksnumbered=true,
+breaklinks=true,
+pdfstartview=FitH,
+hyperfigures=false,
+plainpages=false,
+naturalnames=true,
+colorlinks=true,
+pagebackref=false,
+pdfpagelabels]{hyperref}
+
+\hypersetup{
+	colorlinks,
+	citecolor=blue,
+	filecolor=blue,
+	linkcolor=blue,
+	urlcolor=blue
+}
+
+\usepackage[capitalize, noabbrev]{cleveref}
+\let\subsectionSymbol\S
+\crefname{subsection}{\subsectionSymbol\!}{subsections}
+
+% layout
+\addtolength{\textwidth}{1.2in}
+\addtolength{\textheight}{1.2in}
+\calclayout
+
+% update to MSC2020
+\makeatletter
+\@namedef{subjclassname@2020}{%
+	\textup{2020} Mathematics Subject Classification}
+\makeatother
+
+% table of contents
+\setcounter{tocdepth}{1}
