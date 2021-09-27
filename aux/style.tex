@@ -1,16 +1,21 @@
-\usepackage{tikz-cd}
 \usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{mathbbol} % changes \mathbb{} and adds more support
+\usepackage[shortcuts]{extdash} % hyphenation, e.g. non\-/constructively
+\usepackage{csquotes}
 
 % bibliography
-\usepackage[backend=biber,
-style=alphabetic,
-backref=true,
-url=false,
-doi=false,
-eprint=false,
-isbn=false]{biblatex}
+\usepackage[
+	backend=biber,
+	style=alphabetic,
+	backref=true,
+	url=false,
+	doi=false,
+	isbn=false,
+	eprint=false]{biblatex}
 
-\renewbibmacro{in:}{}
+\renewbibmacro{in:}{}  % don't display "in:" before the journal name
+\AtEveryBibitem{\clearfield{pages}}  % don't show page numbers
 
 \addbibresource{aux/bibliography.bib}
 \addbibresource{aux/usualpapers.bib}
@@ -42,17 +47,18 @@ isbn=false]{biblatex}
 }
 
 % references
-\usepackage[bookmarks=true,
-linktocpage=true,
-bookmarksnumbered=true,
-breaklinks=true,
-pdfstartview=FitH,
-hyperfigures=false,
-plainpages=false,
-naturalnames=true,
-colorlinks=true,
-pagebackref=false,
-pdfpagelabels]{hyperref}
+\usepackage[
+	bookmarks=true,
+	linktocpage=true,
+	bookmarksnumbered=true,
+	breaklinks=true,
+	pdfstartview=FitH,
+	hyperfigures=false,
+	plainpages=false,
+	naturalnames=true,
+	colorlinks=true,
+	pagebackref=false,
+	pdfpagelabels]{hyperref}
 
 \hypersetup{
 	colorlinks,
@@ -67,8 +73,8 @@ pdfpagelabels]{hyperref}
 \crefname{subsection}{\subsectionSymbol\!}{subsections}
 
 % layout
-\addtolength{\textwidth}{1.2in}
-\addtolength{\textheight}{1.2in}
+\addtolength{\textwidth}{0in}
+\addtolength{\textheight}{0in}
 \calclayout
 
 % update to MSC2020

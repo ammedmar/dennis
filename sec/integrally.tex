@@ -1,0 +1,71 @@
+
+\section{$E_\infty$-coalgebras} \label{s:integrally}
+
+
+\subsection{Alexander--Whitney diagonal} \label{ss:aw diagonal}
+
+The first chain approximation to the diagonal map was given in the simplicial context by \v{C}ech and Whitney building on work presented in the 1935 International Congress in Moscow by Alexander and Kolmogorov.
+The original references are \cite{alexander1936ring, cech1936multiplication, whitney1938products} and a historical account is presented by Whitney in \cite[p.110]{whitney1988history}.
+In terms of simplicial face maps this chain map, referred to as \textit{Alexander--Whitney diagonal}, is defined on the basis element associated to an $n$-simplex $x$ by the formula
+\begin{equation} \label{e:aw diagonal}
+\Delta_0(x) = \sum_U d_{U^0}(x) \otimes d_{U^1}(x)
+\end{equation}
+where the sum is over all sets $U = \{u_1 < \dots < u_n\}$ of non-negative integers less than or equal to $n$, and for $\varepsilon \in \{0,1\}$ we write $U^\varepsilon = \{u_i \in U \mid u_i + i\cong \varepsilon \text{ mod } 2\}$ and $d_V = d_{v_1}\! \dotsm \, d_{v_k}$ for any such subset $V = \{v_1 < \dots < v_m\}$.
+
+\subsection{Steenrod cup-$i$ structure} \label{ss:cup-i}
+
+The Alexander--Whitney diagonal defines a coassociative coproduct which is not cocommutative.
+In \cite{steenrod1947products}, Steenrod introduced coherent higher diagonals correcting homologically this lack of commutativity, and used them to define finer invariants of mod~2 cohomology, the celebrated Steenrod squares, whose effective construction we now review.
+Let $C$ be a chain complex of $\k$-modules and regard $\Hom(C, C \otimes C)$ as a chain complex of $\k[\Sym_2]$-modules.
+A \textit{cup-$i$ structure} on $C$ is an equivariant chain map
+$\cW(2) \to \Hom(C, C \otimes C)$ where
+\begin{equation} \label{e:minimal resolution r=2}
+\begin{tikzcd} [column sep = .7cm]
+\mathcal W(2) = \k[\Sym_2]\{e_0\} & \arrow[l, "\;1-T"'] \k[\Sym_2]\{e_1\} & \arrow[l, "\;1+T"'] \k[\Sym_2]\{e_2\} & \arrow[l, "\;1-T"'] \cdots
+\end{tikzcd}
+\end{equation}
+is the minimal free resolution of $\k$ as a $\k[\Sym_2]$-module.
+Denoting the image of $e_i$ by $\Delta_i$, which is referred to as the \textit{cup-$i$ coproduct} of the structure, the natural cup-$i$ construction introduced in the simplicial context by Steenrod can be expressed up to signs by the formula
+\begin{equation} \label{e:steenrod diagonal}
+\Delta_i(x) = \sum_U d_{U^0}(x) \otimes d_{U^1}(x)
+\end{equation}
+where $x$ is a simplex of dimension $n$ and the sum is over all sets of cardinality $n-i$ of non-negative integers less than or equal to $n$ \cite{medina2021newformulas}.
+
+Given a cup-$i$ construction on a chain complex one can define endomorphisms in the mod 2 cohomology of the complex, known as \textit{Steenrod squares}, by the formula
+\[
+Sq^k \big( [\alpha] \big) = \big[ (\alpha \otimes \alpha) \Delta_{\bars{\alpha}-k}(-) \big]
+\]
+where the bracket is used to denote the cohomology class represented by the given homogeneous cocycle.
+
+\subsection{\pdfEinfty-structures}
+
+The cup-$i$ coproducts \eqref{e:steenrod diagonal} are part of an $E_\infty$-coalgebra structure on simplicial chains, i.e. a natural operad morphism, defined for any simplicial set $X$, from a model of the $E_\infty$-operad to $\End^{\chains(X)} = \{\Hom(\chains(X), \chains(X)^{\otimes r})\}_{r \geq 0}$.
+The existence of such structure can be guaranteed using an acyclic carrier argument \cite{eilenberg1953acyclic}.
+This is similar to Dennis' construction in \cref{ss:dennis construction} of an $C_\infty$-structure.
+We now describe explicitly and $E_\infty$-coalgebra structure on simplicial chains and identify elements in the $E_\infty$-operad that correspond to Steenrod's cup-$i$ coproducts.
+
+Let us consider the prop presented by
+\[
+\M = \langle \Delta, \varepsilon, \ast \mid (\varepsilon \otimes \id) \circ \Delta - \id,\  (\id \otimes \varepsilon) \circ \Delta - \id,\ \varepsilon \circ \ast \rangle
+\]
+where the generators respectively have biarities $(1,2)$, $(1,0)$, $(2,1)$, degrees $0,0,1$, and boundaries $0$, $0$, and $\varepsilon \otimes \id - \id \otimes \varepsilon$.
+
+For any standard simplex $\simplex^n$ let ...
+We define a prop morphism $\M \to \End()$
+
+
+
+
+
+
+
+
+
+
+%\subsection{Steenrod cup-$(p,i)$ products}
+%
+%The Steenrod square operations described in the previous section are parameterized by the mod 2 homology of the group $\Sym_2$.
+%We will know discuss homology operations parameterized by the mod $p$ homology of $\Sym_p$ introduced non\-/constructively by Steenrod in \cite{steenrod1952reduced, steenrod1953cyclic}.
+%
+%The mod $p$ homology of the cyclic group $\Cyc_p$ of order $p$ detects that of the symmetric group $\Sym_p$, that is to say, any inclusion $\Cyc_p \to \Sym_p$ induces a surjective map in homology with $\Fp$-coefficients, twisted by the sign representation or not.
+

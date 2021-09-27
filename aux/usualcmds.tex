@@ -16,7 +16,7 @@
 \newcommand{\id}{\mathsf{id}}
 \newcommand{\M}{\cM}
 \newcommand{\UM}{{\forget(\M)}}
-\newcommand{\SL}{{\M_{sl}}}
+\newcommand{\MSL}{{\M_{sl}}}
 \newcommand{\USL}{{\forget(\M_{sl})}}
 \newcommand{\Surj}{\cX}
 \newcommand{\BE}{\cE}
@@ -24,9 +24,12 @@
 % sets and spaces
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \renewcommand{\k}{\Bbbk}
-\renewcommand{\S}{\mathbb{S}}
+\newcommand{\Sym}{\mathbb{S}}
+\newcommand{\Cyc}{\mathbb{C}}
+\newcommand{\Ftwo}{{\mathbb{F}_2}}
 \newcommand{\Fp}{{\mathbb{F}_p}}
 \newcommand{\Cp}{{\mathbb{C}_p}}
 \newcommand{\graphs}{\mathfrak{G}}
@@ -51,8 +54,8 @@
 \newcommand{\Nec}{\mathsf{Nec}}
 \newcommand{\nSet}{\mathsf{nSet}}
 \newcommand{\Mon}{\mathsf{Mon}}
-\newcommand{\Smod}{\mathsf{Mod}_{\S}}
-\newcommand{\Sbimod}{\mathsf{biMod}_{\S}}
+\newcommand{\SymMod}{\mathsf{Mod}_{\Sym}}
+\newcommand{\SymBimod}{\mathsf{biMod}_{\Sym}}
 \newcommand{\operads}{\mathsf{Oper}}
 \newcommand{\props}{\mathsf{Prop}}
 
@@ -60,6 +63,7 @@
 \DeclareMathOperator{\free}{F}
 \DeclareMathOperator{\forget}{U}
 \DeclareMathOperator{\yoneda}{\mathcal{Y}}
+\DeclareMathOperator{\EZ}{EZ}
 \DeclareMathOperator{\chains}{N}
 \DeclareMathOperator{\schains}{N^{\simplex}}
 \DeclareMathOperator{\cchains}{N^{\cube}}
@@ -69,6 +73,8 @@
 \DeclareMathOperator{\Schains}{S}
 \DeclareMathOperator{\sSchains}{S^{\simplex}}
 \DeclareMathOperator{\cSchains}{S^{\cube}}
+\DeclareMathOperator{\sScochains}{S^{\vee}_{\simplex}}
+\DeclareMathOperator{\cScochains}{S^{\vee}_{\cube}}
 \DeclareMathOperator{\gchains}{C}
 \DeclareMathOperator{\sSing}{Sing^{\simplex}}
 \DeclareMathOperator{\cSing}{Sing^{\cube}}
@@ -107,6 +113,7 @@
 \newcommand{\cD}{\mathcal{D}}
 \newcommand{\cE}{\mathcal{E}}
 
+\newcommand{\cL}{\mathcal{L}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cN}{\mathcal{N}}
 \newcommand{\cO}{\mathcal{O}}
