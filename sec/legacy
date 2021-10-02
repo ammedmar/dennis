@@ -1,0 +1,25 @@
+%In symbols,
+%\begin{align} \label{e:presentations com and lie}
+%\com &= \big\langle \mu \ ;\ \big(1 - (12)\big) \mu, \ (\id \otimes \mu) \circ \mu - (\mu \otimes \id) \circ \mu \big\rangle \\
+%\lie &= \big\langle \nu \ ;\ \big(1 + (12)\big) \nu, \ \big( 1 + (12) + (123) \big) (\id \otimes \nu) \circ \nu \big\rangle.
+%\end{align}
+
+%the natural cup-$i$ construction introduced in the simplicial context by Steenrod can be expressed up to signs by the formula
+%\begin{equation} \label{e:steenrod diagonal}
+%\Delta_i(x) = \sum_U d_{U^0}(x) \otimes d_{U^1}(x)
+%\end{equation}
+%where $x$ is a simplex of dimension $n$ and the sum is over all sets of cardinality $n-i$ of non-negative integers less than or equal to $n$ \cite{medina2021newformulas}.
+
+%\begin{equation} \label{e:aw diagonal}
+%\Delta_0(x) = \sum_U d_{U^0}(x) \otimes d_{U^1}(x)
+%\end{equation}
+%where the sum is over all sets $U = \{u_1 < \dots < u_n\}$ of non-negative integers less than or equal to $n$, and for $\varepsilon \in \{0,1\}$ we write $U^\varepsilon = \{u_i \in U \mid u_i + i\cong \varepsilon \text{ mod } 2\}$ and $d_V = d_{v_1}\! \dotsm \, d_{v_k}$ for any such subset $V = \{v_1 < \dots < v_m\}$.
+
+
+%\subsection{Steenrod cup-$(p,i)$ products}
+%
+%The Steenrod square operations described in the previous section are parameterized by the mod 2 homology of the group $\Sym_2$.
+%We will know discuss homology operations parameterized by the mod $p$ homology of $\Sym_p$ introduced non\-/constructively by Steenrod in \cite{steenrod1952reduced, steenrod1953cyclic}.
+%
+%The mod $p$ homology of the cyclic group $\Cyc_p$ of order $p$ detects that of the symmetric group $\Sym_p$, that is to say, any inclusion $\Cyc_p \to \Sym_p$ induces a surjective map in homology with $\Fp$-coefficients, twisted by the sign representation or not.
+

@@ -1,71 +1,260 @@
 
-\section{$E_\infty$-coalgebras} \label{s:integrally}
+\section{\pdfEinfty-coalgebras} \label{s:integrally}
 
 
 \subsection{Alexander--Whitney diagonal} \label{ss:aw diagonal}
 
-The first chain approximation to the diagonal map was given in the simplicial context by \v{C}ech and Whitney building on work presented in the 1935 International Congress in Moscow by Alexander and Kolmogorov.
+The first chain approximation to the diagonal map was given in the simplicial context by \v{C}ech and Whitney building on independent work presented in the 1935 International Congress in Moscow by Alexander and Kolmogorov.
 The original references are \cite{alexander1936ring, cech1936multiplication, whitney1938products} and a historical account is presented by Whitney in \cite[p.110]{whitney1988history}.
-In terms of simplicial face maps this chain map, referred to as \textit{Alexander--Whitney diagonal}, is defined on the basis element associated to an $n$-simplex $x$ by the formula
-\begin{equation} \label{e:aw diagonal}
-\Delta_0(x) = \sum_U d_{U^0}(x) \otimes d_{U^1}(x)
+This chain map, referred to as the \textit{Alexander--Whitney diagonal}, is defined on canonical basis elements by the formula
+\begin{equation} \label{e:alexander-whitney coalgebra}
+\copr \big( [0,\dots,n] \big) = \sum_{i=0}^n \ [0, \dots, i] \ot [i, \dots, n].
 \end{equation}
-where the sum is over all sets $U = \{u_1 < \dots < u_n\}$ of non-negative integers less than or equal to $n$, and for $\varepsilon \in \{0,1\}$ we write $U^\varepsilon = \{u_i \in U \mid u_i + i\cong \varepsilon \text{ mod } 2\}$ and $d_V = d_{v_1}\! \dotsm \, d_{v_k}$ for any such subset $V = \{v_1 < \dots < v_m\}$.
+Together with the \textit{augmentation map}
+\begin{equation} \label{e:augmentation map}
+\aug \big( [0,\dots,n] \big) =
+\begin{cases}
+1 & n=0, \\ 0 & n=1,
+\end{cases}
+\end{equation}
+this diagonal satisfies
+\begin{gather}
+\label{e:coassociativity relation}
+(\copr \ot \id) \circ \copr = (\id \ot \copr) \circ \copr, \\
+\label{e:counital relation}
+(\aug \ot \id) \circ \copr = \id = (\id \ot \aug) \circ \copr,
+\end{gather}
+making the chains of any simplicial set $X$ into a natural coassociative counital coalgebra, which is referred to as the \textit{Alexander--Whitney coalgebra} of $X$.
 
-\subsection{Steenrod cup-$i$ structure} \label{ss:cup-i}
+We will use the following notation for general coalgebras
+\begin{align*}
+\copr^1 &= \copr, \\
+\copr^k &= (\copr \ot \, \id) \circ \copr^{k-1}.
+\end{align*}
 
-The Alexander--Whitney diagonal defines a coassociative coproduct which is not cocommutative.
-In \cite{steenrod1947products}, Steenrod introduced coherent higher diagonals correcting homologically this lack of commutativity, and used them to define finer invariants of mod~2 cohomology, the celebrated Steenrod squares, whose effective construction we now review.
-Let $C$ be a chain complex of $\k$-modules and regard $\Hom(C, C \otimes C)$ as a chain complex of $\k[\Sym_2]$-modules.
-A \textit{cup-$i$ structure} on $C$ is an equivariant chain map
-$\cW(2) \to \Hom(C, C \otimes C)$ where
+\subsection{Steenrod cup-$i$ coproduct structure} \label{ss:cup-i}
+
+As it can be seen directly from \eqref{e:alexander-whitney coalgebra}, the Alexander--Whitney coalgebra is not cocommutative.
+In \cite{steenrod1947products}, Steenrod introduced coherent higher diagonals correcting homologically this lack of cocommutativity, and used them to define finer invariants on mod~2 cohomology, the celebrated Steenrod squares, whose effective construction we now review.
+
+Let $C$ be a chain complex of $\Ftwo$-modules and regard $\Hom(C, C \ot C)$ as a chain complex of $\Ftwo[\Sym_2]$-modules.
+Denote by the \textit{norm element} $1 + (12) \in \Ftwo[\Sym_2]$ by $N$.
+A \textit{cup-$i$ coproduct structure} on $C$ is an equivariant chain map
+$\cW(2) \to \Hom(C, C \ot C)$ where
 \begin{equation} \label{e:minimal resolution r=2}
 \begin{tikzcd} [column sep = .7cm]
-\mathcal W(2) = \k[\Sym_2]\{e_0\} & \arrow[l, "\;1-T"'] \k[\Sym_2]\{e_1\} & \arrow[l, "\;1+T"'] \k[\Sym_2]\{e_2\} & \arrow[l, "\;1-T"'] \cdots
+\mathcal W(2) = \Ftwo[\Sym_2]\{e_0\} & \arrow[l, "N"'] \Ftwo[\Sym_2]\{e_1\} & \arrow[l, "N"'] \Ftwo[\Sym_2]\{e_2\} & \arrow[l, "N"'] \cdots
 \end{tikzcd}
 \end{equation}
-is the minimal free resolution of $\k$ as a $\k[\Sym_2]$-module.
-Denoting the image of $e_i$ by $\Delta_i$, which is referred to as the \textit{cup-$i$ coproduct} of the structure, the natural cup-$i$ construction introduced in the simplicial context by Steenrod can be expressed up to signs by the formula
-\begin{equation} \label{e:steenrod diagonal}
-\Delta_i(x) = \sum_U d_{U^0}(x) \otimes d_{U^1}(x)
+is the minimal free resolution of $\Ftwo$ as a $\Ftwo[\Sym_2]$-module.
+The image of $e_i$ is denoted by $\copr_i \colon C \to C \otimes C$ is referred to as the \textit{cup-$i$ coproduct}.
+
+Let $C$ be equipped with a cup-$i$ coproduct structure.
+The \textit{Steenrod square operations}
+\[
+Sq^k \colon \rH(C^\vee) \to \rH(C^\vee)
+\]
+on the homology of its dual chain complex $C^\vee = \Hom(C, \Ftwo)$ are defined for every integer $k$ by the formula
+\begin{equation} \label{e:steenrod squares}
+Sq^k \big( [\alpha] \big) = \big[ (\alpha \ot \alpha) \copr_{k - \bars{\alpha}}(-) \big]
 \end{equation}
-where $x$ is a simplex of dimension $n$ and the sum is over all sets of cardinality $n-i$ of non-negative integers less than or equal to $n$ \cite{medina2021newformulas}.
+where brackets are used to denote represented elements in $\rH(C^\vee)$.
 
-Given a cup-$i$ construction on a chain complex one can define endomorphisms in the mod 2 cohomology of the complex, known as \textit{Steenrod squares}, by the formula
+We will now review the natural cup-$i$ coproduct structure on simplicial chains introduced in \cite[p.293]{steenrod1947products} and reviewed in \cite[p.682]{mcclure2003multivariable}, see also  \cite{gonzalez-diaz1999steenrod, medina2021newformulas} for alternative descriptions.
+The image of $[0, \dots, n]$ under $\copr_i$ is the sum over all sequences
+\begin{equation*}
+0 < p_1 < \cdots < p_{i+1} < n
+\end{equation*}
+of the tensor product element
+\begin{equation*}
+\begin{split}
+[ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i+1}}, \dots, n ]\ \tensor \\
+[ &{p_1}, \dots, {p_2} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ]
+\end{split}
+\end{equation*}
+if $i$ is odd, and of
+\begin{equation*}
+\begin{split}
+[ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ]\ \tensor \\
+[ &{p_1}, \dots, {p_2} ] \ast [ {p_3}, \dots, {p_4} ] \ast \cdots \ast [ {p_{i+1}}, \dots, n ]
+\end{split}
+\end{equation*}
+if $i$ is even, where $\ast$ denotes the \textit{join} of simplices:
+\begin{equation*}
+[{p_{k-1}}, \dots, {p_{k}} ] \ast [ {p_{k+1}}, \dots, p_{k+2}] = [{p_{k-1}}, \dots, p_k, p_{k+1}, \dots, p_{k+2}].
+\end{equation*}
+In more succinct terms we have the following recursive definition:
+\begin{align*}
+& \copr_0 = \copr, \\
+& \copr_i = \begin{cases}
+(\id \ot \ast) \circ (\copr_{i-1} \ot \id) \circ \copr & \text{ if } i \text{ is even}, \\
+(\ast \ot \id) \circ (23) \circ (\copr_{i-1} \ot \id) \circ \copr & \text{ if } i \text{ is odd}.
+\end{cases}
+\end{align*}
+We will generalize these formulas in the next section.
+
+\subsection{An \pdfEinfty-coalgebra generalization} \label{ss:e-infty generalization}
+
+Cup-$i$ coproducts on simplicial chains are part of a so called $E_\infty$-coalgebra structure.
+This is a natural coalgebra structure over an operad whose arity $r$ part is a chain complex of free $\k[\Sym_r]$-module with the $\k$-homology of a point.
+Similar to Dennis' construction over $\Q$ of an $C_\infty$-coalgebra structure on cellular chains (\cref{ss:dennis construction}), the existence of an $E_\infty$-coalgebra structure over any coefficient ring can be guaranteed using an acyclic carrier argument \cite{eilenberg1953acyclic}.
+The goal of this subsection is to describe explicitly an $E_\infty$-coalgebra structure on simplicial integral chains generalizing the construction of cup-$i$ coproducts of Steenrod (\cref{ss:cup-i}).
+
+Recall from the previous subsection that all cup-$i$ coproducts are expressed as particular compositions of the Alexander--Whitney diagonal and the join operation, which we now define with integral coefficients $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ as
+\begin{multline}
+\ast \big(\left[v_0, \dots, v_p \right] \ot \left[v_{p+1}, \dots, v_q\right]\big) = \\
+\begin{cases} (-1)^{p} \sign(\pi) \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
+\hfil 0 & \text{ if not}, \end{cases}
+\end{multline}
+where $\pi$ is the permutation that orders the vertices.
+
+We can use the join and the Alexander--Whitney diagonal to construct canonical chain homotopies (or higher degree boundaries).
+For example, given any two quasi-isomorphism $f, g \colon \chains(\simplex^n) \to \chains(\simplex^n)$ a canonical chain homotopy between them is given by
 \[
-Sq^k \big( [\alpha] \big) = \big[ (\alpha \otimes \alpha) \Delta_{\bars{\alpha}-k}(-) \big]
+H = (f \ast g) \circ \copr.
 \]
-where the bracket is used to denote the cohomology class represented by the given homogeneous cocycle.
+To see this recall the augmentation map $\aug \colon \chains(\simplex^n) \to \k$ defined in \eqref{e:augmentation map} which is the counit of $\copr$, and notice that the join is a chain homotopy between $\aug \ot \id$ and $\id \ot \aug$.
+Since $f$ and $g$ are quasi-isomorphisms we have $\aug \circ f = \aug \circ g = \aug$, so
+\begin{align*}
+\bd H &=
+\big( \aug \ot \id - \id \ot \aug \big) \circ (f \ot g) \circ \copr \\ &=
+\big(\aug \ot g - f \ot \aug \big) \circ \copr \\ &= g - f.
+\end{align*}
 
-\subsection{\pdfEinfty-structures}
+The collection of all linear maps $\chains(\simplex^n) \to \chains(\simplex^n)^{\ot r}$ for any $r$ that can be expressed as an arbitrary compositions of the Alexander--Whitney coproduct, the join product, and permutations of factors defines an $E_\infty$-coalgebra structure on the chains of standard simplices.
+We remark that, since we are only considering maps whose domain is $\chains(\simplex^n)$, the join ---although used in their construction--- is not one of them.
 
-The cup-$i$ coproducts \eqref{e:steenrod diagonal} are part of an $E_\infty$-coalgebra structure on simplicial chains, i.e. a natural operad morphism, defined for any simplicial set $X$, from a model of the $E_\infty$-operad to $\End^{\chains(X)} = \{\Hom(\chains(X), \chains(X)^{\otimes r})\}_{r \geq 0}$.
-The existence of such structure can be guaranteed using an acyclic carrier argument \cite{eilenberg1953acyclic}.
-This is similar to Dennis' construction in \cref{ss:dennis construction} of an $C_\infty$-structure.
-We now describe explicitly and $E_\infty$-coalgebra structure on simplicial chains and identify elements in the $E_\infty$-operad that correspond to Steenrod's cup-$i$ coproducts.
+The $E_\infty$-operad $\UM$ defining this structure can be abstracted from this example.
+Roughly speaking, $\UM = \{\M(1,r)\}_{r \geq 0}$ is the operad associated to the prop $\M$ generated by symbols $\copr, \aug, \pr$ in biarities $(1,2)$, $(1,0)$, and $(2,1)$ of degree $0,0,1$ with $\bd \copr = 0$, $\bd \aug = 0$, and $\bd \pr = \aug \ot \, \id - \id \ot \aug$, modulo the relations $(\aug \ot \, \id) \circ \copr = \id = (\id \ot \aug) \circ \copr$ and $\aug \circ \, \ast = 0$.
+In \cref{ss:homology of M} we review certain explicit chain contractions that can be used to compute the equivariant homology of $\UM$.
+Details on the construction of the prop $\UM$ can be found in \cite{medina2020prop1} together with a comparison to the surjection operad \cite{mcclure2003multivariable}, a construction based on an earlier generalization of Steenrod's cup-$i$ coproducts \cite[\S4.5]{benson1998representations}.
 
-Let us consider the prop presented by
+\subsection{Cubical chains}
+
+Let us consider the cellular chains on the interval $\gchains(\gcube)$ as a counital coalgebra in the usual way:
+\begin{align*}
+\copr[01] &= [0] \ot [01] + [01] \ot [1], &
+\copr[0]  &= [0] \ot [0], &
+\copr[1]  &= [1] \ot [1] \\
+\aug[01] &= 0, &
+\aug[0]  &= 1, &
+\aug [1]  &= 1.
+\end{align*}
+This structure can be extended to the chains of cubical sets using the isomorphism
 \[
-\M = \langle \Delta, \varepsilon, \ast \mid (\varepsilon \otimes \id) \circ \Delta - \id,\  (\id \otimes \varepsilon) \circ \Delta - \id,\ \varepsilon \circ \ast \rangle
+\chains(\cube^n) \cong \gchains(\gcube)^{\ot n}
 \]
-where the generators respectively have biarities $(1,2)$, $(1,0)$, $(2,1)$, degrees $0,0,1$, and boundaries $0$, $0$, and $\varepsilon \otimes \id - \id \otimes \varepsilon$.
+and the fact that the tensor product of counital coalgebras receives this structure canonically as we now recall.
+For $i \in \{1,2\}$ let $C_i$ be a counital coalgebra, the tensor product $C_1 \ot C_2$ has the same structure, defined by
+\begin{align} \label{e:extension of coproduct}
+\copr(c_1 \ot c_2) &= (23) \big( \copr(c_1) \ot \copr(c_2) \, \big), \\
+\label{e:extension of augmentation}
+\aug(c_1 \ot c_2) &= \aug(c_1) \aug(c_2),
+\end{align}
+where $(23)$ acts by permuting the tensor factors of $C_1 \ot C_1 \ot C_2 \ot C_2$.
 
-For any standard simplex $\simplex^n$ let ...
-We define a prop morphism $\M \to \End()$
+For any cubical set $Y$ the induce structure on its chains agrees with that considered by Serre in \cite{serre1951homologie}, and we refer to it as the \textit{Serre coalgebra} of $Y$.
 
+We can define an $E_\infty$-coalgebra structure extending the Serre coalgebra by describing an extension to all $\chains(\cube^n)$ of the map $\ast \colon \gchains(\gcube)^{\ot 2} \to \gchains(\gcube)$ defined to be non-zero only for
+\[
+\ast([0] \ot [1]) = [01], \qquad
+\ast([1] \ot [0]) = - [01].
+\]
 
+For $i = 1,2$ let $A_i$ be a chain complex equipped with a degree $1$ map $\pr \colon A_i^{\ot 2} \to A_i$ and chain map $\aug \colon A_i \to \k$ such that $\aug \circ \pr = 0$ and $\partial \pr = \aug \ot \, \id - \id \ot \aug$, then the tensor product $A_1 \ot A_2$ has the same structure, explicitly defined by \eqref{e:extension of augmentation} and
+\begin{equation} \label{e:extension of product}
+\pr \big( (a_1 \ot a_2) \ot (a_1^\prime \ot a_2^\prime)\big) =
+(\id \ot \aug \ot \ast \, + \, \pr \ot \aug \ot \, \id)(23)
+\big( a_1 \ot a_2 \ot a_1^\prime \ot a_2^\prime \big)
+\end{equation}
+where the right-hand side is more explicitly given by
+\[
+(-1)^{\bars{a_2} \bars{a_1^\prime}} \big( \aug(a_1^\prime) \, a_1 \ot \ast (a_2 \otimes a_2^\prime)  \, + \, \pr(a_1 \otimes a_1^\prime) \ot \aug(a_2) \, a_2^\prime \big).
+\]
 
+Together, formulas \eqref{e:extension of coproduct}, \eqref{e:extension of augmentation}, and \eqref{e:extension of product} induce on the tensor product of $\M$-bialgebras the same structure.
+In particular, $\chains(\cube^n) \cong \gchains(\gcube)^{\otimes n}$ is equipped with an $\M$-bialgebra structure induced from that in the cellular chain on the interval.
+From it, a standard categorical construction -- a Kan extension along the Yoneda embedding~-- provides the chains on any cubical set with the structure of an $E_\infty$-coalgebra extending the Serre coalgebra structure or, more specifically, the structure of a $\UM$-coalgebra.
 
+\subsection{Chain contractions for $\M$} \label{ss:homology of M}
 
+We now explicitly describe chain contractions
+\[
+\begin{tikzcd}
+\arrow[loop, distance=2em, in=195, out=165, "\sigma"'] \M(s,r) \arrow[r, shift left=3pt, "\proj"] &
+\M(s,r-1) \arrow[l, shift left=3pt, "\incl"]
+\end{tikzcd}
+\]
+for every $s \geq 1$ and $r \geq 0$.
+In the next section we will use these to define cup-$(r, i)$ coproducts on $\UM$-coalgebras.
 
+Recall that $\M$ is the prop generated by $\copr$, $\aug$, and $\pr$ modulo certain relations (\cref{ss:e-infty generalization}).
+Let $\eta \in \M(s,r)$ be a composition of generators and let
+\begin{align*}
+\incl(\eta) & = (\id \ot \eta) \circ \copr, \\
+\proj(\eta) & = (\aug \ot \, \id^{\ot r-1}) \circ \eta, \\
+\sigma(\eta) & = (\pr \ot \, \id^{r-1}) \circ (\id \otimes \eta) \circ \copr.
+\end{align*}
+Using the relations defining $\M$ it is not hard to see that $\M(s,0) \cong \k$ so we have an explicit contraction
+\[
+\begin{tikzcd}
+\arrow[loop, distance=2em, in=195, out=165, "h"'] \M(s,r) \arrow[r, shift left=3pt, "\proj^r"] &
+\k \arrow[l, shift left=3pt, "\incl^r"]
+\end{tikzcd}
+\]
+where
+\begin{equation} \label{e:big chain contraction}
+h = \sigma + \incl \sigma \proj + \dots + \incl^{r} \sigma \proj^{r}.
+\end{equation}
+In particular, given that by construction $\UM$ is a free $\Sym$-module, these chain contractions shows that $\UM$ is an $E_\infty$-operad.
 
+\subsection{Steenrod cup-$(r,i)$ products}
 
+To generalize the notion of cup-$i$ coproduct structure, consider the minimal free resolution of $\k$ as a $\k[\Cyc_r]$-module
+\begin{equation} \label{e:minimal resolution r>2}
+\begin{tikzcd} [column sep = .5cm]
+\mathcal W(r) = \k[\Cyc_r]\{e_0\} & \arrow[l, "\,T"'] \k[\Cyc_r]\{e_1\} & \arrow[l, "\,N"'] \k[\Cyc_r]\{e_2\} & \arrow[l, "\,T"'] \cdots.
+\end{tikzcd}
+\end{equation}
+with
+\begin{equation} \label{e:trnaposition and norm maps}
+N = 1 + \rho + \dots + \rho^{r-1}, \qquad
+T = \rho - 1.
+\end{equation}
 
+Let $C$ be a $\UM$-coalgebra, for example the chains on a simplicial or cubical set.
+For $r \geq 2$, let $\psi(r) \colon \cW(r) \to \End(C, C^{\ot r})$ be the $\Cyc_r$-equivariant chain map defined recursively by
+\begin{equation}\label{e:definition of psi}
+\begin{split}
+\psi(r)(e_0) & = \Delta^{r-1}, \\
+\psi(r)(e_{2m+1}) & = h\,T\,\psi(r)(e_{2m}), \\
+\psi(r)(e_{2m}) & = h\,N\,\psi(r)(e_{2m-1}),
+\end{split}
+\end{equation}
+where $T$ and $N$ are defined in \eqref{e:trnaposition and norm maps} and $h$ in \eqref{e:big chain contraction}.
+The \textit{Steenrod cup-}$(r, i)$ \textit{product} of $C$ is defined for every $r, i \geq 0$ as the image in $\End(C, C^{\ot r})$ of $\psi(e_i)$.
 
-%\subsection{Steenrod cup-$(p,i)$ products}
-%
-%The Steenrod square operations described in the previous section are parameterized by the mod 2 homology of the group $\Sym_2$.
-%We will know discuss homology operations parameterized by the mod $p$ homology of $\Sym_p$ introduced non\-/constructively by Steenrod in \cite{steenrod1952reduced, steenrod1953cyclic}.
-%
-%The mod $p$ homology of the cyclic group $\Cyc_p$ of order $p$ detects that of the symmetric group $\Sym_p$, that is to say, any inclusion $\Cyc_p \to \Sym_p$ induces a surjective map in homology with $\Fp$-coefficients, twisted by the sign representation or not.
+\subsection{Steenrod operations}
+
+Let $p$ be an odd prime.
+We now present a construction analogue to the one given in \eqref{e:steenrod squares} to define Steenrod squares.
+We remark that those operations
+
+An inclusion $\Cyc_p \to \Sym_p$ induces a surjection in mod $p$ homology. Using the degrees where this surjection is not the zero map we have the following construction explained in more detain in \cite{steenrod1952reduced,steenrod1953cyclic,may1970general}.
+
+Let $C$ be a $\UM$-coalgebra and $C^\vee = \Hom(C, \Fp)$.
+We simplify notation and denote the linear map $\psi(p)(e_i) \colon C \to C^{\ot p}$ defined in \eqref{e:definition of psi} simply by $\psi_i$.
+For any integer $s$, the \textit{Steenrod operations}
+\begin{equation*}
+P_s \colon H_\bullet(C^\vee; \mathbb{F}_p) \to H_{\bullet + 2s(p-1)}(C^\vee; \mathbb{F}_p)
+\end{equation*}
+and
+\begin{equation*}
+\beta P_s \colon H_\bullet(C^\vee; \mathbb{F}_p) \to H_{\bullet + 2s(p-1) - 1}(C^\vee; \mathbb{F}_p)
+\end{equation*}
+are defined by sending the class represented by a cycle $\alpha \in C^\vee$ of degree $q$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
+\begin{equation*}
+\pm \, \alpha^{\ot p} \circ \psi_{(2s-q)(p-1)-\varepsilon}(-)
+\end{equation*}
+where a sign convention is motivated in \cite[(6.1)]{steenrod1953cyclic}.
 
