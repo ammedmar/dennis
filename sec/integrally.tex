@@ -86,21 +86,21 @@ if $i$ is even, where $\ast$ denotes the \textit{join} of simplices:
 In more succinct terms we have the following recursive definition:
 \begin{align*}
 & \copr_0 = \copr, \\
-& \copr_i = \begin{cases}
-(\id \ot \ast) \circ (\copr_{i-1} \ot \id) \circ \copr & \text{ if } i \text{ is even}, \\
-(\ast \ot \id) \circ (23) \circ (\copr_{i-1} \ot \id) \circ \copr & \text{ if } i \text{ is odd}.
-\end{cases}
+& \copr_i =
+(\ast \ot \id) \circ (\id \ot (12)\copr_{i-1}) \circ \copr
 \end{align*}
-We will generalize these formulas in the next section.
+%\begin{align*}
+%& \copr_0 = \copr, \\
+%& \copr_i = \begin{cases}
+%(\id \ot \ast) \circ (\copr_{i-1} \ot \id) \circ \copr & \text{ if } i \text{ is even}, \\
+%(\ast \ot \id) \circ (23) \circ (\copr_{i-1} \ot \id) \circ \copr & \text{ if } i \text{ is odd}.
+%\end{cases}
+%\end{align*}
+We will generalize these formulas in \cref{ss:e-infty generalization}.
 
-\subsection{An \pdfEinfty-coalgebra generalization} \label{ss:e-infty generalization}
+\subsection{Join as a canonical homotopy}
 
-Cup-$i$ coproducts on simplicial chains are part of a so called $E_\infty$-coalgebra structure.
-This is a natural coalgebra structure over an operad whose arity $r$ part is a chain complex of free $\k[\Sym_r]$-module with the $\k$-homology of a point.
-Similar to Dennis' construction over $\Q$ of an $C_\infty$-coalgebra structure on cellular chains (\cref{ss:dennis construction}), the existence of an $E_\infty$-coalgebra structure over any coefficient ring can be guaranteed using an acyclic carrier argument \cite{eilenberg1953acyclic}.
-The goal of this subsection is to describe explicitly an $E_\infty$-coalgebra structure on simplicial integral chains generalizing the construction of cup-$i$ coproducts of Steenrod (\cref{ss:cup-i}).
-
-Recall from the previous subsection that all cup-$i$ coproducts are expressed as particular compositions of the Alexander--Whitney diagonal and the join operation, which we now define with integral coefficients $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ as
+As described above, all cup-$i$ coproducts can be expressed as compositions of the Alexander--Whitney diagonal and the join operation $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$, which we now define with integral coefficients as
 \begin{multline}
 \ast \big(\left[v_0, \dots, v_p \right] \ot \left[v_{p+1}, \dots, v_q\right]\big) = \\
 \begin{cases} (-1)^{p} \sign(\pi) \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
@@ -108,12 +108,15 @@ Recall from the previous subsection that all cup-$i$ coproducts are expressed as
 \end{multline}
 where $\pi$ is the permutation that orders the vertices.
 
-We can use the join and the Alexander--Whitney diagonal to construct canonical chain homotopies (or higher degree boundaries).
+This is because the join and the Alexander--Whitney diagonal can be uses to construct chain homotopies (or higher degree boundaries between linear maps) canonically.
 For example, given any two quasi-isomorphism $f, g \colon \chains(\simplex^n) \to \chains(\simplex^n)$ a canonical chain homotopy between them is given by
 \[
 H = (f \ast g) \circ \copr.
 \]
-To see this recall the augmentation map $\aug \colon \chains(\simplex^n) \to \k$ defined in \eqref{e:augmentation map} which is the counit of $\copr$, and notice that the join is a chain homotopy between $\aug \ot \id$ and $\id \ot \aug$.
+To see this recall the augmentation map $\aug \colon \chains(\simplex^n) \to \k$ defined in \eqref{e:augmentation map} which is the counit of $\copr$, and notice that the join is a chain homotopy between $\aug \ot \, \id$ and $\id \ot \aug$, i.e.,
+\begin{equation}
+\partial \pr = \aug \ot \, \id - \id \ot \aug.
+\end{equation}
 Since $f$ and $g$ are quasi-isomorphisms we have $\aug \circ f = \aug \circ g = \aug$, so
 \begin{align*}
 \bd H &=
@@ -121,13 +124,21 @@ Since $f$ and $g$ are quasi-isomorphisms we have $\aug \circ f = \aug \circ g = 
 \big(\aug \ot g - f \ot \aug \big) \circ \copr \\ &= g - f.
 \end{align*}
 
+\subsection{An \pdfEinfty-coalgebra on simplicial chains} \label{ss:e-infty generalization}
+
+Cup-$i$ coproducts on simplicial chains are part of a so called $E_\infty$-coalgebra structure.
+This is a natural coalgebra structure over an operad whose arity $r$ part is a chain complex of free $\k[\Sym_r]$-module with the $\k$-homology of a point.
+Similar to Dennis' construction over $\Q$ of an $C_\infty$-coalgebra structure on cellular chains (\cref{ss:dennis construction}), the existence of an $E_\infty$-coalgebra structure over any coefficient ring can be guaranteed using an acyclic carrier argument \cite{eilenberg1953acyclic}.
+The goal of this subsection is to describe explicitly an $E_\infty$-coalgebra structure on simplicial integral chains generalizing the construction of cup-$i$ coproducts of Steenrod (\cref{ss:cup-i}).
+
 The collection of all linear maps $\chains(\simplex^n) \to \chains(\simplex^n)^{\ot r}$ for any $r$ that can be expressed as an arbitrary compositions of the Alexander--Whitney coproduct, the join product, and permutations of factors defines an $E_\infty$-coalgebra structure on the chains of standard simplices.
 We remark that, since we are only considering maps whose domain is $\chains(\simplex^n)$, the join ---although used in their construction--- is not one of them.
 
 The $E_\infty$-operad $\UM$ defining this structure can be abstracted from this example.
 Roughly speaking, $\UM = \{\M(1,r)\}_{r \geq 0}$ is the operad associated to the prop $\M$ generated by symbols $\copr, \aug, \pr$ in biarities $(1,2)$, $(1,0)$, and $(2,1)$ of degree $0,0,1$ with $\bd \copr = 0$, $\bd \aug = 0$, and $\bd \pr = \aug \ot \, \id - \id \ot \aug$, modulo the relations $(\aug \ot \, \id) \circ \copr = \id = (\id \ot \aug) \circ \copr$ and $\aug \circ \, \ast = 0$.
-In \cref{ss:homology of M} we review certain explicit chain contractions that can be used to compute the equivariant homology of $\UM$.
-Details on the construction of the prop $\UM$ can be found in \cite{medina2020prop1} together with a comparison to the surjection operad \cite{mcclure2003multivariable}, a construction based on an earlier generalization of Steenrod's cup-$i$ coproducts \cite[\S4.5]{benson1998representations}.
+In \cref{ss:homology of M} we review certain explicit chain contractions that can be used to compute the equivariant homology of $\UM$, and we use in \cref{ss:cup-(p,1) coproducts}.
+
+Full details regarding the construction of the prop $\UM$ can be found in \cite{medina2020prop1} together with a comparison to the surjection operad \cite{mcclure2003multivariable}, a construction based on an earlier generalization of Steenrod's cup-$i$ coproducts \cite[\S4.5]{benson1998representations}.
 
 \subsection{Cubical chains}
 
@@ -208,7 +219,7 @@ h = \sigma + \incl \sigma \proj + \dots + \incl^{r} \sigma \proj^{r}.
 \end{equation}
 In particular, given that by construction $\UM$ is a free $\Sym$-module, these chain contractions shows that $\UM$ is an $E_\infty$-operad.
 
-\subsection{Steenrod cup-$(r,i)$ products}
+\subsection{Steenrod cup-$(r,i)$ products} \label{ss:cup-(p,i) coproducts}
 
 To generalize the notion of cup-$i$ coproduct structure, consider the minimal free resolution of $\k$ as a $\k[\Cyc_r]$-module
 \begin{equation} \label{e:minimal resolution r>2}
@@ -231,30 +242,30 @@ For $r \geq 2$, let $\psi(r) \colon \cW(r) \to \End(C, C^{\ot r})$ be the $\Cyc_
 \psi(r)(e_{2m}) & = h\,N\,\psi(r)(e_{2m-1}),
 \end{split}
 \end{equation}
-where $T$ and $N$ are defined in \eqref{e:trnaposition and norm maps} and $h$ in \eqref{e:big chain contraction}.
+where $T$ and $N$ are explicitly defined in \eqref{e:trnaposition and norm maps} and $h$ in \eqref{e:big chain contraction}.
 The \textit{Steenrod cup-}$(r, i)$ \textit{product} of $C$ is defined for every $r, i \geq 0$ as the image in $\End(C, C^{\ot r})$ of $\psi(e_i)$.
 
-\subsection{Steenrod operations}
+\subsection{Steenrod operations} \label{ss:steenrod operations}
 
 Let $p$ be an odd prime.
-We now present a construction analogue to the one given in \eqref{e:steenrod squares} to define Steenrod squares.
-We remark that those operations
-
-An inclusion $\Cyc_p \to \Sym_p$ induces a surjection in mod $p$ homology. Using the degrees where this surjection is not the zero map we have the following construction explained in more detain in \cite{steenrod1952reduced,steenrod1953cyclic,may1970general}.
+We now present a construction, analogue to the one given in \eqref{e:steenrod squares} to define Steenrod square operations, defining Steenrod operations in mod $p$ cohomology.
+We remark that Steenrod square operations are parameterized by the mod $2$ homology of $\Sym_2 = \Cyc_2$.
+In the present context, any inclusion $\Cyc_p \to \Sym_p$ induces a surjection in mod $p$ homology.
+Using the degrees where this surjection is not the zero map we have the following construction explained in more detain in \cite{steenrod1952reduced,steenrod1953cyclic,may1970general}.
 
 Let $C$ be a $\UM$-coalgebra and $C^\vee = \Hom(C, \Fp)$.
-We simplify notation and denote the linear map $\psi(p)(e_i) \colon C \to C^{\ot p}$ defined in \eqref{e:definition of psi} simply by $\psi_i$.
+We simplify notation and denote the explicit linear map $\psi(p)(e_i) \colon C \to C^{\ot p}$ defined in \eqref{e:definition of psi} simply by $\psi_i$.
 For any integer $s$, the \textit{Steenrod operations}
 \begin{equation*}
-P_s \colon H_\bullet(C^\vee; \mathbb{F}_p) \to H_{\bullet + 2s(p-1)}(C^\vee; \mathbb{F}_p)
+P_s \colon \rH(C^\vee; \Fp) \to \rH(C^\vee; \Fp)
 \end{equation*}
 and
 \begin{equation*}
-\beta P_s \colon H_\bullet(C^\vee; \mathbb{F}_p) \to H_{\bullet + 2s(p-1) - 1}(C^\vee; \mathbb{F}_p)
+\beta P_s \colon \rH(C^\vee; \Fp) \to \rH(C^\vee; \Fp)
 \end{equation*}
 are defined by sending the class represented by a cycle $\alpha \in C^\vee$ of degree $q$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
 \begin{equation*}
 \pm \, \alpha^{\ot p} \circ \psi_{(2s-q)(p-1)-\varepsilon}(-)
 \end{equation*}
-where a sign convention is motivated in \cite[(6.1)]{steenrod1953cyclic}.
+where a possible sign convention is motivated in \cite[(6.1)]{steenrod1953cyclic}.
 
