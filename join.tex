@@ -1,0 +1,41 @@
+\begin{tikzpicture}[scale=.6]
+\coordinate (A) at (210:2);
+\coordinate (B) at (-30:2);
+\coordinate (C) at (90:2);
+
+\draw[draw=black] (A) -- (B) -- (C) -- (A);
+
+\node[circle,fill=blue, opacity=.9, inner sep=0pt,minimum size=5pt, label=left:{0}] (a) at (A) {};
+\node[circle,fill=black,inner sep=0pt,minimum size=3pt, label=right:{$1$}] (a) at (B) {};
+\node[circle,fill=black,inner sep=0pt,minimum size=3pt, label=right:{$2$}] (a) at (C) {};
+
+\node[scale=1.5] at (3.5,0.5) {$\ast$};
+\end{tikzpicture}
+\begin{tikzpicture}[scale=.6]
+\coordinate (A) at (210:2);
+\coordinate (B) at (-30:2);
+\coordinate (C) at (90:2);
+
+\draw[draw=blue,  ultra thick, draw opacity=.7] (B) -- (C);
+\draw[draw=black] (C) -- (A);
+\draw[draw=black] (A) -- (B);
+
+\node[circle,fill=black,inner sep=0pt,minimum size=3pt, label=left:{$0$}] (a) at (A) {};
+\node[circle,fill=black,inner sep=0pt,minimum size=3pt, label=right:{$1$}] (a) at (B) {};
+\node[circle,fill=black,inner sep=0pt,minimum size=3pt, label=right:{$2$}] (a) at (C) {};
+
+\node[scale=1.5] at (3.5,.5) {=};
+\end{tikzpicture}
+\begin{tikzpicture}[scale=.6]
+\coordinate (A) at (210:2);
+\coordinate (B) at (-30:2);
+\coordinate (C) at (90:2);
+
+\draw[draw=black] (A) -- (B) -- (C) -- (A);
+
+\node[circle,fill=black,inner sep=0pt,minimum size=3pt, label=left:{$0$}] (a) at (A) {};
+\node[circle,fill=black,inner sep=0pt,minimum size=3pt, label=right:{$1$}] (a) at (B) {};
+\node[circle,fill=black,inner sep=0pt,minimum size=3pt, label=right:{$2$}] (a) at (C) {};
+
+\draw[draw, fill=blue, opacity=.7] (A) -- (B) -- (C) -- (A);
+\end{tikzpicture}

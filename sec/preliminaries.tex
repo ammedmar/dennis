@@ -3,5 +3,56 @@
 
 \subsection{Conventions}
 
+Let $\k$ be a commutative and unital ring.
+We work over the closed symmetric monoidal category of homologically graded differential graded $\k$-modules, referring to its objects and morphisms as chain complexes and chain maps respectively.
+
+\subsection{Operads, cooperads, and props}
+
+Let $\Sym$ be the category whose objects are the natural numbers and morphisms satisfy
+\[
+\Sym(m,n) = \begin{cases}
+\Sym_n & n = m, \\
+\hfil \emptyset & n \neq m,
+\end{cases}
+\]
+where $\Sym_n$ is the $n^\th$ symmetric group.
+The category of \textit{right $\Sym$-modules} is the functor category $\Fun(\Sym^\op, \Ch)$ and that of \textit{left $\Sym$-modules} is $\Fun(\Sym, \Ch)$.
+
+For any chain complex $C$ we have the following important examples whose symmetric structure is given by transposition of factors:
+\begin{equation} \label{e:endo and coendo operads}
+\End_C(n) = \End(C^{\ot n}, C), \qquad
+\coEnd_C(n) = \End(C, C^{\ot n}).
+\end{equation}
+
+\textit{Right operads} and \textit{cooperads} are, respectively, monoids and comonoids in the category of $\Sym$-modules when equipped with the following monoidal structure.
+Given a right $\Sym$-module $M$, consider the following associated endofunctor of $\Ch$ defined on objects by
+\[
+C \mapsto \bigoplus_{r \geq 0} M(r) \ot_{\Sym_r} C^{\ot r}.
+\]
+The composition of these functors defines said monoidal structure.
+The corresponding notions on left $\Sym$-modules are defined analogously.
+Important examples of right and left operads are respectively given by $\End_C$ and $\coEnd_C$ for any chain complex $C$.
+When $C = \k$ we denote either of these by $\com$.
+
+
+\textit{Algebras} and \textit{coalgebras} over operads and cooperads are defined in terms of these monoids and comonoids respectively.
+We will prioritize algebras over right operads and coalgebras over left cooperads.
+
+
+
+
+\begin{gather*}
+\biEnd_C(n) = \End(C^{\ot m}, C^{\ot n}).
+\end{gather*}
+
+\textit{Algebras} and \textit{coalgebras} over operads and cooperads are defined in terms of these monoids.
+
+
+
+
+
 \subsection{Algebras and coalgebras over operads}
+
+
+\subsection{The $\com$ operad}
 
