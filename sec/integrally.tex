@@ -1,6 +1,10 @@
 
 \section{\pdfEinfty-coalgebras} \label{s:integrally}
 
+An operad $\cO$ is said to be $E_\infty$ if there exists a morphism $\cO \to \com$ inducing in each arity $r$ a resolution of $\k$ by free $\k[\Sym_r]$-modules.
+
+In this section we will describe the $E_\infty$-operad $\forget(\M)$ introduced in \cite{medina2020prop1} and use it to extend the natural coalgebra structures on simplicial and cubical chains to $E_\infty$-coalgebras.
+Additionally, we will describe elements in this operad representing Steenord operations on the cohomology of these combinatorial models of spaces and overview the Brumfiel-Morgan program for algebraic Postnikov systems.
 
 \subsection{Alexander--Whitney coalgebra} \label{ss:aw diagonal}
 
@@ -45,7 +49,7 @@ It is an algebraic version of the usual join of faces in a simplex, please consu
 
 \begin{figure}
 	\input{join}
-	\caption{Geometric representation of the join product $\pr \big( [0] \otimes [1,2] \big) = [0,1,2]$.}
+	\caption{Geometric representation of the join product of two basis elements. Explicitly, it depicts the identity $\pr \big( [0] \otimes [1,2] \big) = [0,1,2]$.}
 	\label{f:join of faces}
 \end{figure}
 
@@ -97,7 +101,7 @@ We can use the Alexander--Whitney coproduct and the join product to give a recur
 \end{split}
 \end{equation}
 
-We refer to \cite{mcclure2003multivariable, gonzalez-diaz1999steenrod, medina2021newformulas} for alternative descriptions of isomorphic \mbox{cup-$i$} constructions, where we say that two \mbox{cup-$i$} constructions on $C$ say $\psi$ and $\psi^\prime$ are \textit{isomorphic} if there is an automorphism of $\cW(2)$ making the following diagram commute:
+We refer to \cite{mcclure2003multivariable, gonzalez-diaz1999steenrod, medina2021newformulas} for alternative descriptions of isomorphic \mbox{cup-$i$} constructions, where we say that two \mbox{cup-$i$} constructions on $C$, say $\psi$ and $\psi^\prime$, are \textit{isomorphic} if there is an automorphism of $\cW(2)$ making the following diagram commute:
 \[
 \begin{tikzcd} [column sep = -25, row sep=normal]
 \cW(2) \arrow[rr, "\cong"] \arrow[rd, in=150, out=-90, "\psi^{\phantom{\prime}}"', near start] & & \cW(2) \arrow[ld, in=30, out=-90, "\psi^\prime", near start] \\
@@ -136,7 +140,7 @@ We use this family in \cref{ss:higher cup-i coproducts} to define cup-$(r,i)$ co
 
 Full details regarding the construction of the prop $\UM$ can be found in \cite{medina2020prop1} together with a comparison to the surjection operad \cite{mcclure2003multivariable, berger2004combinatorial}, a construction based on an earlier generalization of Steenrod's cup-$i$ coproducts \cite[\S4.5]{benson1998representations}.
 
-\subsection{Cubical chains}
+\subsection{Monoidal extension and cubical chains}
 
 Let us consider the cellular chains on the interval $\gchains(\gcube)$ as a counital coalgebra in the usual way:
 \begin{align*}
@@ -151,8 +155,8 @@ This structure can be extended to the chains of cubical sets using the isomorphi
 \[
 \chains(\cube^n) \cong \gchains(\gcube)^{\ot n}
 \]
-and the fact that the tensor product of counital coalgebras receives this structure canonically as we now recall.
-For $i \in \{1,2\}$ let $C_i$ be a counital coalgebra, the tensor product $C_1 \ot C_2$ is a counital coalgebra with
+and the fact that the tensor product of counital coalgebras receives this structure canonically.
+Explicitly, for $i \in \{1,2\}$ let $C_i$ be a counital coalgebra, the tensor product $C_1 \ot C_2$ is a counital coalgebra with
 \begin{align} \label{e:extension of coproduct}
 \copr(c_1 \ot c_2) &= (23) \big( \copr(c_1) \ot \copr(c_2) \, \big), \\
 \label{e:extension of augmentation}
@@ -160,7 +164,7 @@ For $i \in \{1,2\}$ let $C_i$ be a counital coalgebra, the tensor product $C_1 \
 \end{align}
 where $(23)$ acts by permuting the tensor factors of $C_1 \ot C_1 \ot C_2 \ot C_2$.
 
-For any cubical set $Y$ the induce structure on its chains agrees with that considered by Serre in \cite{serre1951homologie}, and we refer to it as the \textit{Serre coalgebra} of $Y$.
+For any cubical set $Y$ the induced structure on its chains agrees with that considered by Serre in \cite{serre1951homologie}, and we refer to it as the \textit{Serre coalgebra} of $Y$.
 
 We can define an $E_\infty$-coalgebra structure extending the Serre coalgebra by describing an extension to all $\chains(\cube^n)$ of the map $\ast \colon \gchains(\gcube)^{\ot 2} \to \gchains(\gcube)$ defined to be non-zero only for
 \[
@@ -175,7 +179,7 @@ The tensor product $A_1 \ot A_2$ has the same structure, explicitly defined by \
 (\id \ot \aug \ot \ast \, + \, \pr \ot \aug \ot \, \id)(23)
 \big( a_1 \ot a_2 \ot a_1^\prime \ot a_2^\prime \big)
 \end{equation}
-where the right-hand side given more explicitly by
+where the right-hand side can be given more explicitly by
 \[
 (-1)^{\bars{a_2} \bars{a_1^\prime}} \big( \aug(a_1^\prime) \, a_1 \ot \ast (a_2 \otimes a_2^\prime)  \, + \, \pr(a_1 \otimes a_1^\prime) \ot \aug(a_2) \, a_2^\prime \big).
 \]
@@ -199,13 +203,20 @@ for every $s \geq 1$ and $r \geq 0$.
 In the next section we will use these to define cup-$(r, i)$ coproducts on $\UM$-coalgebras.
 
 Recall that $\M$ is the prop generated by $\copr$, $\aug$, and $\pr$ modulo certain relations (\cref{ss:e-infty generalization}).
-Let $\eta \in \M(s,r)$ be a composition of generators and let
+Let $\eta \in \M(s,r)$ be a composition of generators and define
 \begin{align*}
 \incl(\eta) & = (\id \ot \eta) \circ \copr, \\
 \proj(\eta) & = (\aug \ot \, \id^{\ot r-1}) \circ \eta, \\
 \sigma(\eta) & = (\pr \ot \, \id^{r-1}) \circ (\id \otimes \eta) \circ \copr.
 \end{align*}
-Using the relations defining $\M$ it is not hard to see that $\M(s,0) \cong \k$ so we have an explicit chain contraction
+This define a chain contraction as above, i.e. they satisfy
+\[
+\proj \circ \incl - \id = 0
+\qquad
+\incl \circ \proj - \id = \bd \sigma.
+\]
+
+Using the relations defining $\M$ it is not hard to see that $\M(s,0) \cong \k$, so we have an explicit chain contraction
 \[
 \begin{tikzcd}
 \arrow[loop, distance=2em, in=195, out=165, "h"'] \M(s,r) \arrow[r, shift left=3pt, "\proj^r"] &
@@ -223,14 +234,15 @@ In particular, given that by construction $\UM$ is a free $\Sym$-module, these c
 To generalize the notion of cup-$i$ coproduct structure, consider the minimal free resolution of $\Z$ as a $\Z[\Cyc_r]$-module
 \begin{equation} \label{e:minimal resolution r>2}
 \begin{tikzcd} [column sep = .5cm]
-\mathcal W(r) = \Z[\Cyc_r]\{e_0\} & \arrow[l, "\,T"'] \Z[\Cyc_r]\{e_1\} & \arrow[l, "\,N"'] \Z[\Cyc_r]\{e_2\} & \arrow[l, "\,T"'] \cdots.
+\mathcal W(r) = \Z[\Cyc_r]\{e_0\} & \arrow[l, "\,T"'] \Z[\Cyc_r]\{e_1\} & \arrow[l, "\,N"'] \Z[\Cyc_r]\{e_2\} & \arrow[l, "\,T"'] \cdots
 \end{tikzcd}
 \end{equation}
-where $\rho$ is a generator of $\Cyc_r$ and
+where
 \begin{equation} \label{e:trnaposition and norm maps}
 N = 1 + \rho + \dots + \rho^{r-1}, \qquad
-T = \rho - 1.
+T = \rho - 1,
 \end{equation}
+and $\rho$ is a generator of $\Cyc_r$.
 
 Let $C$ be a $\UM$-coalgebra, for example the chains on a simplicial or cubical set.
 For $r \geq 2$, let $\psi(r) \colon \cW(r) \to \End(C, C^{\ot r})$ be the $\Cyc_r$-equivariant chain map defined recursively by
@@ -251,7 +263,7 @@ Let $p$ be an odd prime.
 We now present a construction, analogue to the one given in \cref{ss:steenrod squares} to define Steenrod square operations, defining Steenrod operations in mod $p$ cohomology.
 We remark that Steenrod square operations are parameterized by the mod $2$ homology of $\Cyc_2 = \Sym_2$.
 As explained for example in \cite[Corollary~VI.1.4]{adem2004milgram}, an inclusion $\Cyc_p \to \Sym_p$ induces a surjection in mod $p$ homology.
-Using the homological degrees where this surjection is non-zero we have the following construction explained in more detain in \cite{steenrod1952reduced,steenrod1953cyclic,may1970general}.
+Using the homological degrees where this surjection is non-zero we have the following construction explained in more detain in \cite{steenrod1952reduced, steenrod1953cyclic, may1970general}.
 
 Let $C$ be a $\UM$-coalgebra and $C^\vee = \Hom(C, \Fp)$.
 We simplify notation and denote the explicit linear map $\psi(p)(e_i) \colon C \to C^{\ot p}$ defined in \eqref{e:definition of psi} simply by $\psi_i$.
@@ -268,4 +280,8 @@ are defined by sending the class represented by a cycle $\alpha \in C^\vee$ of d
 \pm \, \alpha^{\ot p} \circ \psi_{(2s-q)(p-1)-\varepsilon}(-)
 \end{equation*}
 where a possible sign convention is introduced and motivated in \cite[(6.1)]{steenrod1953cyclic}.
+
+\subsection{Cartan and Adem relations}
+
+\subsection{The Brumfiel-Morgan program}
 
