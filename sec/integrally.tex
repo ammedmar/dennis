@@ -49,7 +49,7 @@ It is an algebraic version of the usual join of faces in a simplex, please consu
 
 \begin{figure}
 	\input{join}
-	\caption{Geometric representation of the join product of two basis elements. Explicitly, it depicts the identity $\pr \big( [0] \otimes [1,2] \big) = [0,1,2]$.}
+	\caption{Geometric representation of the join product of two basis elements. It depicts the identity $\pr \big( [0] \otimes [1,2] \big) = [0,1,2]$.}
 	\label{f:join of faces}
 \end{figure}
 
@@ -282,6 +282,47 @@ are defined by sending the class represented by a cycle $\alpha \in C^\vee$ of d
 where a possible sign convention is introduced and motivated in \cite[(6.1)]{steenrod1953cyclic}.
 
 \subsection{Cartan and Adem relations}
+
+There is a conceptual pattern producing additional homological information from relations bounding primary structure.
+As an example, we have seen that Steenrod operations can be understood as structure on cohomology deduced from lifting to the cochain level the commutativity relation satisfied by the cup product.
+Steenrod operations, which we now regard as primary cohomological structure, themselves satisfy relations that lead to finer structure.
+The first one of these is the \textit{Cartan relation} that establishes a connection between Steenrod operations and the cup product, it is given by:
+\begin{equation*}
+P_s\big(\alpha \beta \big) = \sum_{i+j=s} P_i\big( \alpha \big) P_j\big( \beta \big).
+\end{equation*}
+The second are the \textit{Adem relations}, controlling the iteration of Steenrod operations, and given by:
+\begin{enumerate}
+	\item If $p = 2$ and $a > 2b$, then
+	\begin{equation*}
+	P_{a} P_{b} = \sum_i \binom{2i-a}{a-b-i-1} P_{a+b-i}P_i,
+	\end{equation*}
+	\item If $p > 2$ and $a > pb$, then
+	\begin{equation*}
+	P_{a} P_{b} = \sum_i (-1)^{a+i} \binom{pi-a}{a-(p-1)b-i-1} P_{a+b-i}P_i.
+	\end{equation*}
+\end{enumerate}
+There are version of these using the $\beta P_s$ operations but we do not write them here, see for example \cite{may1970general}.
+
+Since the Steenrod operations and their relations are a consequence of the $E_\infty$-structure cellular chains, and the former have been lifted to the cochain level via the cup-$(p,i)$ products, it is in principle possible to produce cochains whose coboundary enforces these relations.
+Such Cartan and Adem coboundaries have not yet been constructed over odd primes.
+For the even prime case, they are effectively constructed in \cite{medina2020cartan} and \cite{medina2021adem} respectively.
+
+\subsection{Topological lattice field theory}
+
+
+These relations play an important role in the definition of secondary cohomology operations and $\kappa$-invariants of Postnikov towers.
+
+
+
+Given that Steenrod \mbox{cup-$i$} products and their Adem and Cartan coboundaries feature centrally on certain field theories \cite{gaiotto2016spin, kapustin2017fermionic, barkeshli2021classification}, we expect to use the newly introduced cup-$(p,i)$ products and their Cartan and Adem cochains in the construction of new theories.
+
+\subsection{Secondary operations and Postnikov towers}
+
+
+
+With G. Brumfiel (\textit{Stanford}) and J.~Morgan (\textit{Columbia}) we produced cochains enforcing these relations in the case $p=2$, and will extend this work to all primes.
+This will allow us to provide cochain models approximating spaces presented by certain Postnikov towers, as they have done for the Spin bordism spectrum.
+Work motivated by the study of lattice field theories as surveyed in \cref{ss:physics}.
 
 \subsection{The Brumfiel-Morgan program}
 
