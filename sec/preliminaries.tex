@@ -6,7 +6,9 @@
 Let $\k$ be a commutative and unital ring.
 We work over the closed symmetric monoidal category of homologically graded differential graded $\k$-modules, referring to its objects and morphisms as chain complexes and chain maps respectively.
 
-\subsection{Operads, cooperads, and props}
+Through out this section $C$ will be used to denote a chain complex.
+
+\subsection{Operads and props}
 
 Let $\Sym$ be the category whose objects are the natural numbers and morphisms satisfy
 \[
@@ -17,42 +19,80 @@ Let $\Sym$ be the category whose objects are the natural numbers and morphisms s
 \]
 where $\Sym_n$ is the $n^\th$ symmetric group.
 The category of \textit{right $\Sym$-modules} is the functor category $\Fun(\Sym^\op, \Ch)$ and that of \textit{left $\Sym$-modules} is $\Fun(\Sym, \Ch)$.
-
-For any chain complex $C$ we have the following important examples whose symmetric structure is given by transposition of factors:
+We have the following important examples whose symmetric structure is given by transposition of factors:
 \begin{equation} \label{e:endo and coendo operads}
 \End_C(n) = \End(C^{\ot n}, C), \qquad
 \coEnd_C(n) = \End(C, C^{\ot n}).
 \end{equation}
-
-\textit{Right operads} and \textit{cooperads} are, respectively, monoids and comonoids in the category of $\Sym$-modules when equipped with the following monoidal structure.
-Given a right $\Sym$-module $M$, consider the following associated endofunctor of $\Ch$ defined on objects by
+A right $\Sym$-module $M$ induces an endofunctor of $\Ch$ defined on objects by
 \[
 C \mapsto \bigoplus_{r \geq 0} M(r) \ot_{\Sym_r} C^{\ot r}.
 \]
-The composition of these functors defines said monoidal structure.
-The corresponding notions on left $\Sym$-modules are defined analogously.
-Important examples of right and left operads are respectively given by $\End_C$ and $\coEnd_C$ for any chain complex $C$.
-When $C = \k$ we denote either of these by $\com$.
+A \textit{right operad} $\cO$ is a right $\Sym$-module with the structure of a monad on its associated endofunctor.
+More explicitly, this corresponds to a collections of maps
+\[
+\begin{split}
+\cO(r) \ot \cO(s_1) \ot \dots \ot \cO(s_r) & \to \cO(s_1 + \dots + s_r) \\
+\k & \to \cO(1)
+\end{split}
+\]
+satisfying certain associativity, unitality and equivariance relations.
+The corresponding notions for left $\Sym$-modules are defined analogously.
+Important examples of right and left operads are respectively given by $\End_C$ and $\coEnd_C$ with their composition structures.
 
+These examples are generalized by the functor $\biEnd_C \colon \Sym^\op \times \Sym \to \Ch$ defined on objects by
+\[
+\biEnd_C(s,r) = \Hom(C^{\ot s}, C^{\ot r}),
+\]
+whose composition structure together with the tensoring of linear maps defines the paradigmatic example of a \textit{prop}.
 
-\textit{Algebras} and \textit{coalgebras} over operads and cooperads are defined in terms of these monoids and comonoids respectively.
-We will prioritize algebras over right operads and coalgebras over left cooperads.
+An \textit{$\cO$-algebra} (resp. $\cO$-coalgebra) structure on $C$ where $\cO$ is a right (resp. left) operad is a morphism $\cO \to \End_C$ (resp. $\cO \to \coEnd_C$).
+More explicitly, these respectively correspond to a compatible collection of chains maps
+\[
+\cO(r) \ot_{\Sym_r} C^{\ot r} \to C
+\]
+and of equivariant chain maps
+\[
+\cO(r) \ot C \to C^{\ot r}.
+\]
+Similarly, a \textit{$\cP$-bialgebra} structure on $C$ is a prop morphism $\cP \to \biEnd_C$, which corresponds to a collection of compatible chain maps
+\[
+\cP(s,r) \ot C^{\ot s} \to C^{\ot r}.
+\]
 
+The equivalence $\Sym \cong \Sym^\op$ induced by taking inverses can be used to interchange left and right $\Sym$-modules.
+We will omit these adjectives when no confusion arises from doing so.
 
+\subsection{The commutative operad and the cup product}
 
+Of particular importance to us is the operad $\com$ given explicitly by $\com(n) = \k$ for every $n \geq 0$.
+Notice that $\com$-algebras are the same as unital associative commutative algebras.
 
-\begin{gather*}
-\biEnd_C(n) = \End(C^{\ot m}, C^{\ot n}).
-\end{gather*}
+The motivating example of a $\com$-algebra for us is given by the cohomology of a cellular space $X$.
+Any choice of a chain approximation to the diagonal
+\begin{equation} \label{e:chain diagonal}
+\gchains(X) \to \gchains(X)^{\otimes 2}
+\end{equation}
+makes its cohomology $\rH^\vee(X)$ into a $\com$-algebra via the \textit{cup product}
+\[
+\rH^\vee(X)^{\otimes 2} \to \rH^\vee(X)
+\]
+induced by the dualization of \eqref{e:chain diagonal}.
+%\begin{equation*}
+%\gchains^\vee(X)^{\otimes 2} \to \gchains^\vee(X),
+%\end{equation*}
+%where $\gchains^\vee(X) = \Hom(\gchains(X), \k)$.
 
-\textit{Algebras} and \textit{coalgebras} over operads and cooperads are defined in terms of these monoids.
+We are interested in extending the cochain level product by lifting the cohomological structure.
+To do so, we will consider certain cofibrant resolutions $\cO \to \com$ over different rings and construct natural explicit lifts
+\[
+\begin{tikzcd}
+\cO \arrow[r, dashed] \arrow[d] &
+\End_{C^\vee(X)} \arrow[d] \\
+\com \arrow[r] &
+\End_{H^\vee(X)}.
+\end{tikzcd}
+\]
+We will also describe the homotopical properties encoded in these algebraic models of cellular spaces.
 
-
-
-
-
-\subsection{Algebras and coalgebras over operads}
-
-
-\subsection{The $\com$ operad}
-
+In the next section we study this problem over $\Q$ and in \cref{s:integrally} over $\Z$ and $\Fp$.
