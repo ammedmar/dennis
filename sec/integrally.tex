@@ -1,16 +1,19 @@
+% !TEX root = ../dennis.tex
 
 \section{\pdfEinfty-coalgebras} \label{s:integrally}
 
-An operad $\cO$ is said to be $E_\infty$ if there exists a morphism $\cO \to \com$ inducing in each arity $r$ a resolution of $\k$ by free $\k[\Sym_r]$-modules.
+%An operad $\cO$ is said to be $E_\infty$ if there exists a morphism $\cO \to \com$ inducing in each arity $r$ a resolution of $\k$ by free $\k[\Sym_r]$-modules.
 
-In this section we will describe the $E_\infty$-operad $\forget(\M)$ introduced in \cite{medina2020prop1} and use it to extend the natural coalgebra structures on simplicial and cubical chains to $E_\infty$-coalgebras.
-Additionally, we will describe elements in this operad representing Steenord operations on the cohomology of these combinatorial models of spaces and overview the Brumfiel-Morgan program for algebraic Postnikov systems.
+In this section we consider extensions of the Alexander--Whitney and Serre coalgebras on simplicial and cubical chains respectively.
+We recall Steenrod's cup-$i$ coproducts and their induced square operations on mod 2 cohomology.
+We then describe an extension of these coproducts as a full $E_\infty$-coalgebra using three linear maps, and identify generalizations to cup-$(p,i)$ coproducts inducing Steenrod operations on mod $p$ cohomology.
+We close this section overviewing the use of cochain level structures in the study of symmetry protected topological phases.
 
 \subsection{Alexander--Whitney coalgebra} \label{ss:aw diagonal}
 
 The first chain approximation to the diagonal was given in the simplicial context by \v{C}ech and Whitney building on independent work presented during the 1935 International Congress in Moscow by Alexander and Kolmogorov.
 The original references are \cite{alexander1936ring, cech1936multiplication, whitney1938products} and a historical account is presented by Whitney in \cite[p.110]{whitney1988history}.
-This chain map, referred to as the \textit{Alexander--Whitney coproduct}, is defined on canonical basis elements by the formula
+This chain map, referred to as the \textit{Alexander--Whitney coproduct}, is defined on elements of the canonical basis by the formula
 \begin{equation} \label{e:alexander-whitney coalgebra}
 \copr \big( [0,\dots,n] \big) = \sum_{i=0}^n \ [0, \dots, i] \ot [i, \dots, n].
 \end{equation}
@@ -48,7 +51,7 @@ where $\pi$ is the permutation that orders the vertices.
 It is an algebraic version of the usual join of faces in a simplex, please consult \cref{f:join of faces} for an example.
 
 \begin{figure}
-	\input{join}
+	\input{aux/join}
 	\caption{Geometric representation of the join product of two basis elements. It depicts the identity $\pr \big( [0] \otimes [1,2] \big) = [0,1,2]$.}
 	\label{f:join of faces}
 \end{figure}
@@ -80,7 +83,7 @@ In \cite{steenrod1947products}, Steenrod introduced coherent higher diagonals co
 He used them to define the celebrated square operations, finer invariants on the mod~2 cohomology of spaces (\cref{ss:steenrod squares}).
 In this subsection we present an explicit recursive definition of Steenrod's higher diagonals.
 
-Let $C$ be a chain complex of $\Z$-modules and regard $\Hom(C, C \ot C)$ as a chain complex of $\Z[\Sym_2]$-modules where $\Sym_2$ acts by permuting the factors $C \otimes C$ in the target.
+Let $C$ be a chain complex of $\Z$-modules and regard $\Hom(C, C \ot C)$ as a chain complex of $\Z[\Sym_2]$-modules where $\Sym_2$ acts by permuting the factors in the target.
 Denote the elements $1 + (12)$ and $(12) - 1$ in $\Z[\Sym_2]$ by $N$ and $T$ respectively.
 A \textit{cup-$i$ coproduct structure} on $C$ is an equivariant chain map
 $\cW(2) \to \Hom(C, C \ot C)$ where
@@ -108,6 +111,7 @@ We refer to \cite{mcclure2003multivariable, gonzalez-diaz1999steenrod, medina202
 & \Hom(C, C^{\ot 2}). &
 \end{tikzcd}
 \]
+The cup-$i$ products of Steenrod seem to be combinatorially fundamental, for example, they induce the nerve of strict infinity categories \cite{street1987orientals, medina2020globular} and can be axiomatically characterized \cite{medina2018axiomatic}.
 
 \subsection{Steenrod square operations} \label{ss:steenrod squares}
 
@@ -138,7 +142,7 @@ Roughly speaking, $\UM = \{\M(1,r)\}_{r \geq 0}$ is the operad associated to the
 In \cref{ss:homology of M} we review a family of explicit chain contractions that can be used to compute the homology of $\UM$.
 We use this family in \cref{ss:higher cup-i coproducts} to define cup-$(r,i)$ coproducts responsible for Steenrod operations at all primes.
 
-Full details regarding the construction of the prop $\UM$ can be found in \cite{medina2020prop1} together with a comparison to the surjection operad \cite{mcclure2003multivariable, berger2004combinatorial}, a construction based on an earlier generalization of Steenrod's cup-$i$ coproducts \cite[\S4.5]{benson1998representations}.
+Full details regarding the construction of the prop $\UM$ can be found in \cite{medina2020prop1, medina2018prop2} together with a comparison to the surjection operad \cite{mcclure2003multivariable, berger2004combinatorial}, a construction based on an earlier generalization of Steenrod's cup-$i$ coproducts \cite[\S4.5]{benson1998representations}.
 
 \subsection{Monoidal extension and cubical chains}
 
@@ -188,7 +192,7 @@ Together, formulas \eqref{e:extension of coproduct}, \eqref{e:extension of augme
 In particular, $\chains(\cube^n) \cong \gchains(\gcube)^{\otimes n}$ is equipped with an $\M$-bialgebra structure induced from that in the cellular chain on the interval.
 From it, a standard categorical construction -- a Kan extension along the Yoneda embedding~-- provides the chains on any cubical set with the structure of an $E_\infty$-coalgebra extending the Serre coalgebra structure or, more specifically, the structure of a $\UM$-coalgebra.
 
-Using the monoidal structure on $\M$-bialgebras we also have a natural $\M$\-/bialgebra structure on any tensor product $\chains(\simplex^{n_1}) \otimes \dots \otimes \chains(\simplex^{n_k})$ which defines a natural $\UM$-coalgebra on multisimplicial chains \cite{?}.
+Using the monoidal structure on $\M$-bialgebras we also have a natural $\M$\-/bialgebra structure on any tensor product $\chains(\simplex^{n_1}) \otimes \dots \otimes \chains(\simplex^{n_k})$ which defines a natural $\UM$-coalgebra on multisimplicial chains \cite{gugenheim1957supercomplexes, salvatore2020multisimplicial}
 
 \subsection{Chain contractions for $\M$} \label{ss:homology of M}
 
@@ -260,10 +264,10 @@ We remark that for $r = 2$ the resulting cup-$i$ coproduct structure on simplici
 \subsection{Steenrod operations} \label{ss:steenrod operations}
 
 Let $p$ be an odd prime.
-We now present a construction, analogue to the one given in \cref{ss:steenrod squares} to define Steenrod square operations, defining Steenrod operations in mod $p$ cohomology.
+We now review a construction of Steenrod operations in mod $p$ cohomology analogue to the one given in \cref{ss:steenrod squares} for Steenrod squares.
 We remark that Steenrod square operations are parameterized by the mod $2$ homology of $\Cyc_2 = \Sym_2$.
 As explained for example in \cite[Corollary~VI.1.4]{adem2004milgram}, an inclusion $\Cyc_p \to \Sym_p$ induces a surjection in mod $p$ homology.
-Using the homological degrees where this surjection is non-zero we have the following construction explained in more detain in \cite{steenrod1952reduced, steenrod1953cyclic, may1970general}.
+Using the homological degrees where this surjection is non-zero we have the following construction explained in more detain in \cite{steenrod1952reduced, steenrod1953cyclic, steenrod1962cohomology, may1970general}.
 
 Let $C$ be a $\UM$-coalgebra and $C^\vee = \Hom(C, \Fp)$.
 We simplify notation and denote the explicit linear map $\psi(p)(e_i) \colon C \to C^{\ot p}$ defined in \eqref{e:definition of psi} simply by $\psi_i$.
@@ -275,7 +279,7 @@ and
 \begin{equation*}
 \beta P_s \colon \rH(C^\vee; \Fp) \to \rH(C^\vee; \Fp)
 \end{equation*}
-are defined by sending the class represented by a cycle $\alpha \in C^\vee$ of degree $q$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
+are defined by sending the class represented by $\alpha \in C^\vee$ of degree $q$ to the classes represented respectively for $\varepsilon \in \{0,1\}$ by
 \begin{equation*}
 \pm \, \alpha^{\ot p} \circ \psi_{(2s-q)(p-1)-\varepsilon}(-)
 \end{equation*}
@@ -285,12 +289,12 @@ where a possible sign convention is introduced and motivated in \cite[(6.1)]{ste
 
 There is a conceptual pattern producing additional homological information from relations bounding primary structure.
 As an example, we have seen that Steenrod operations can be understood as structure on cohomology deduced from lifting to the cochain level the commutativity relation satisfied by the cup product.
-Steenrod operations, which we now regard as primary cohomological structure, themselves satisfy relations that lead to finer structure.
-The first one of these is the \textit{Cartan relation} that establishes a connection between Steenrod operations and the cup product, it is given by:
+Steenrod operations, which we now regard as primary cohomological structure, satisfy relations that lead to finer structure.
+The first of these is the \textit{Cartan relation} that establishes a connection between Steenrod operations and the cup product, it is given by:
 \begin{equation*}
 P_s\big(\alpha \beta \big) = \sum_{i+j=s} P_i\big( \alpha \big) P_j\big( \beta \big).
 \end{equation*}
-The second are the \textit{Adem relations}, controlling the iteration of Steenrod operations, and given by:
+The second is the \textit{Adem relation}, controlling the iteration of Steenrod operations, and given by:
 \begin{enumerate}
 	\item If $p = 2$ and $a > 2b$, then
 	\begin{equation*}
@@ -301,28 +305,59 @@ The second are the \textit{Adem relations}, controlling the iteration of Steenro
 	P_{a} P_{b} = \sum_i (-1)^{a+i} \binom{pi-a}{a-(p-1)b-i-1} P_{a+b-i}P_i.
 	\end{equation*}
 \end{enumerate}
-There are version of these using the $\beta P_s$ operations but we do not write them here, see for example \cite{may1970general}.
+There are version of these using the $\beta P_s$ operations but we do not write them here, see for example \cite{steenrod1962cohomology, may1970general}.
 
-Since the Steenrod operations and their relations are a consequence of the $E_\infty$-structure cellular chains, and the former have been lifted to the cochain level via the cup-$(p,i)$ products, it is in principle possible to produce cochains whose coboundary enforces these relations.
-Such Cartan and Adem coboundaries have not yet been constructed over odd primes.
-For the even prime case, they are effectively constructed in \cite{medina2020cartan} and \cite{medina2021adem} respectively.
+Steenrod operations and the above relations are a homological consequence of an $E_\infty$-structure.
+For cellular chains we have seen explicit cochain level constructions, the cup-$(p,i)$ products, inducing the Steenrod operations, and it is desirable to produce cochains enforcing these relations.
+%That is to say, given one or two cocycles construct naturally  a cochain whose coboundary is equal to the difference between the compositions of cup-$(p,i)$ products applied to these cocycles that descend to the Cartan and Adem relations between their represented cohomology classes.
+For the even prime case, Cartan and Adem coboundaries have been constructed effectively in \cite{medina2020cartan} and \cite{medina2021adem} respectively.
+Cartan coboundaries for odd primes can be constructed with the tools already described, but the Adem relation requires additional techniques not yet available.
 
-\subsection{Topological lattice field theory}
+A source of motivation for these cochain level constructions comes from their use in the study of topological phases as we overview next.
 
+\subsection{Symmetry protected topological phases and cochain constructions}
 
-These relations play an important role in the definition of secondary cohomology operations and $\kappa$-invariants of Postnikov towers.
+A central problem in physics is to define and understand the moduli ``space'' of quantum systems with a fixed set of invariants, for example their dimension and symmetry type.
+In condensed matter physics, quantum systems are
+presented using \textit{lattice models} which, intuitively, are given by a Hamiltonian presented as a sum of local terms on a Hilbert space associated to a lattice in $\R^n$.
+We think of these as defined on flat space.
+One such system is said to be \textit{gapped} if the spectrum of the Hamiltonian is bounded away from $0$, and two Hamiltonians represent the same \textit{phase} if there exists a deformation between them consisting only of systems that remain bounded from below.
 
+Given a lattice model, using cellular decompositions and state sum type constructions on can quite often compute the corresponding \textit{partition functions} on spacetime manifolds from actions expressed in terms of gauge fields represented by cochains and cochain level structures: Stiefel--Whitney cochains, cup-$i$ products and Cartan/Adem coboundaries, for example.
+%In certain cases, more general space-time manifolds can be considered by providing them with a cellular decomposition and assembling a lattice model over it.
+%The resulting \textit{partition function} is defined through a state-sum procedure whose
+Subdivision invariance gives rise to a topological quantum field theory, which in the \textit{invertible} case is expected to be controlled by a generalized cohomology theory \cite{xiong2018minimalist, gaiotto2019cohomology, freed2021reflection}.
+The cochain level structure used in the definition of the cellular gauge theory is interpreted from this point of view as describing a cochain model of the Postnikov tower of the relevant spectrum.
+For example, fermionic phases protected by a $G$-symmetry are believed to be classified by applying to $BG$ the Pontryagin dual of spin bordism \cite{kapustin2015cobordism, kapustin2017fermionic}.
+Building on these insights, A. Kapustin proposed a structural ansatz in low dimensions that Greg Brumfiel and John Morgan verified by constructing cochain models of certain connective covers of said spectrum \cite{brumfiel2016pontrjagin, brumfiel2018pontrjagin}.
+The resulting models use cup-$i$ products and Adem coboundaries to represent $k$-invariants and the additive structure of the spectrum.
+%We expect the finer cochain level structures overviewed in earlier sections to be useful for expanding this connection between condensed matter physics and homotopy theory.
 
+%The interplay between condensed matter physics and combinatorial topology is passes naturally through combinatorial topology and we expect that the finer structure encoded on the diagonal approximation of cellular spaces to play a
+%
+%The \textit{partition function} of which, i.e. the $\mathbb{C}$-valued function on closed manifolds, is defined through a state-sum procedure after providing the manifold under consideration with a cellular decomposition and assembling the lattice model on it.
+%The resulting action is expressed in terms of fields represented by cochains and cochain level structure, such as cup-$(p,i)$ products and Cartan/Adem coboundary constructions.
 
-Given that Steenrod \mbox{cup-$i$} products and their Adem and Cartan coboundaries feature centrally on certain field theories \cite{gaiotto2016spin, kapustin2017fermionic, barkeshli2021classification}, we expect to use the newly introduced cup-$(p,i)$ products and their Cartan and Adem cochains in the construction of new theories.
+%Classifications of the resulting TQFTs have been proposed for certain type of phases in terms of spectra.
+%The cochain level structure alluded to before is interpreted as encoding the Posnikov tower of the relevant spectrum.
+%For example, fermionic phases in dimensions up to $4$
 
-\subsection{Secondary operations and Postnikov towers}
-
-
-
-With G. Brumfiel (\textit{Stanford}) and J.~Morgan (\textit{Columbia}) we produced cochains enforcing these relations in the case $p=2$, and will extend this work to all primes.
-This will allow us to provide cochain models approximating spaces presented by certain Postnikov towers, as they have done for the Spin bordism spectrum.
-Work motivated by the study of lattice field theories as surveyed in \cref{ss:physics}.
-
-\subsection{The Brumfiel-Morgan program}
+%We will discuss fermionic SPT phases, with their bosonic counterparts treated similarly with less complications.
+%One could
+%
+%During a talk\footnote{Currently available at \url{ http://scgp.stonybrook.edu/archives/7874}} at the Simons Center for Geometry and Physics, which I image was attended by Dennis, A. Kitaev proposed that the
+%
+%After the work of Wu-Gen, Kitaev, Gaiotto, Kapustin, Thorngren and many other \cite{gaiotto2016spin, kapustin2017fermionic, barkeshli2021classification} it is known that certain topological gauge theories can be described using as fields the cellular cochains of a manifold with values on an $\infty$-group $\mathbb G$, which can be thought of as a Postnikov tower, and employing cochain level structures, such as cup-$i$ products and Cartan/Adem coboundaries, to describe the relevant action functionals.
+%Particularly important for fermionic theories are the Postnikov towers of Spin bordism and its Pontryagin dual.
+%
+%Following a question by Kapustin, Brumfiel and Morgan constructed cochain models of these in dimensions 3 \cite{brumfiel2016pontrjagin} and 4 \cite{brumfiel2018pontrjagin}, see also \cite{brumfiel2018quadratic}.
+%As expected, the cochain description of these uses the same cochain level structures used to define the fields and action functionals consider by physicist in their models of (2+1)D and (3+1)D fermionic topological phases.
+%That is to say, cup-$i$ products and Cartan/Adem coboundaries.
+%
+%Giving the $k$-invariants of the tower in terms of the
+%
+%The work ahead is to expand the collection of homology theories that are currently expressible in terms of cochain approximations through their Postnikov towers, as well as the set of (topologically invariant) action functionals that can be consider over them.
+%Concretely, we expect to improve the approximation of Spin bordism from 4 to 5 dimensions, and eventually to all of them, which will have an impact on the classification and study of fermionic phases of matter as their lower dimensional versions already have.
+%
+%These relations play an important role in the definition of secondary cohomology operations and $\kappa$-invariants of Postnikov towers.
 

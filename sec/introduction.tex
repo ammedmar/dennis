@@ -1,3 +1,4 @@
+% !TEX root = ../dennis.tex
 
 \section{Introduction} \label{s:introduction}
 
@@ -7,43 +8,55 @@ The first approaches, dating back to Poincar\'e, are based on the idea of subdiv
 These elementary shapes generate a free graded module and their spatial relations define the differential used to compute cohomology.
 This definition makes certain geometric properties of cohomology, for example excision, fairly clear.
 Yet, it is not easy to show that a continuous map of spaces induces a map between their associated cohomologies.
-The functoriality just alluded to is trivial when defining cohomology in terms of homotopy classes of maps to Eilenberg--MacLane spaces, but this passage to the homotopy category forgets much geometric information and it is not easy to concretely manipulate on specific examples.
+The functoriality just alluded to is trivial when defining cohomology in terms of homotopy classes of maps to Eilenberg--MacLane spaces, but the passage to the homotopy category erases geometric and combinatorial information, and the resulting definition is not easy to manipulate concretely on specific examples.
 
 Cohomology as a graded group is a fairly computable invariant but it has noticeable limitations, for example, $\mathbb{C} P^2$ and $S^2 \vee S^4$ are not distinguished by it.
-One can refine this invariant by endowing cohomology with the cup product.
-In the spectral context, this finer structure is defined through the wedge product of Eilenberg--MacLane spaces, whereas in the cellular model it is obtained from a choice of chain approximation to the diagonal, i.e. a natural chain map
+This invariant can be refined to a graded ring by endowing cohomology with the cup product.
+In the spectral context, this finer structure is defined through the wedge product of Eilenberg--MacLane spaces, whereas in the cellular setting it is obtained from a choice of
+cellular approximation to the diagonal.
+Such cellular map induces a natural chain map
 \begin{equation} \label{e:chain diagonal}
 \Delta \colon \gchains(X) \to \gchains(X)^{\otimes 2}
 \end{equation}
-inducing a isomorphism when $X$ is a point.
-The fact that the cup product is commutative and associative hints the presence of further structure at the chain level extending the coproduct $\Delta$.
+making the cellular chains of $X$ into a (differential graded) coalgebra.
+The fact that the cup product on cohomology, induced by the linear dual of \eqref{e:chain diagonal}, is associative and (graded) commutative hints at the presence of additional structure extending the coalgebra structure on $\gchains(X)$.
 
-In this survey article we will present, from a viewpoint that emphasizes their constructive nature, $C_\infty$ and $E_\infty$ extensions of $\Delta$.
+In this survey article we will present, from a viewpoint that emphasizes their constructive nature, $C_\infty$ and $E_\infty$ extensions of $\Delta$ over the rationals and integers respectively.
 The resulting algebraic structures control much of the homotopy theory of spaces.
-For example, over the rationals, the quasi-isomorphism type of a $C_\infty$-coalgebra extension of the symmetrization of $\Delta$ determines the $\Q$-completion of $X$ under certain finiteness assumptions \cite{quillen1969rational}.
-Similarly, over the algebraic closure of $\Fp$, the quasi-isomorphism type of the dual of an $E_\infty$-coalgebra extension of $\Delta$ determines the $p$-completion of $X$ under certain finiteness assumptions \cite{mandell2001padic}.
+For example, over the rationals, the quasi-isomorphism type of a $C_\infty$-coalgebra extension of the symmetrization of $\Delta$ determines the $\Q$-completion of $X$ under certain assumptions \cite{quillen1969rational, buijs2020liemodels}.
+Similarly, over the algebraic closure of $\Fp$, the quasi-isomorphism type of the dual of an $E_\infty$-coalgebra extension of $\Delta$ determines the $p$-completion of $X$ provided certain finiteness assumptions are met \cite{mandell2001padic}.
+Both of these statements follow from the stronger fact that the relevant model categories are Quillen equivalent.
 
 \subsection*{Rational coefficients}
 
 In \cref{s:rationally} we will study extensions of chain approximations to the diagonal with rational coefficients.
-Over this field, a chain approximation to the diagonal can be symmetrized giving rise to a cocommutative coalgebra.
+Over this field, a chain approximation to the diagonal can be symmetrized, giving rise to a cocommutative coalgebra.
 This coalgebra cannot be made simultaneously coassociative, but this relation can be imposed in a derive sense through a family of coherent chain homotopies -- which also respect certain symmetry constrains -- and give rise to a so called $C_\infty$-coalgebra structure.
-We can think of $C_\infty$-coalgebras in terms of the somewhat more familiar notion of $A_\infty$-coalgebra where commutativity is satisfied strictly.
-As a manifestation of Koszul duality, a $C_\infty$-coalgebra structure on cellular chains is equivalent to a differential on the completion of the free graded Lie algebra generated by the cells shifted downwards in degree.
+One can think of $C_\infty$-coalgebras in terms of the somewhat more familiar notion of $A_\infty$-coalgebra where commutativity is satisfied strictly.
+As a manifestation of Koszul duality, a $C_\infty$-coalgebra structure on cellular chains is equivalent to a differential on the completion of the free graded Lie algebra generated by the cells shifted downwards in degree by one.
+This relates $C_\infty$-coalgebras to deformation theory, but we do not explore this deep connection here.
 For cell complexes whose closed cells have the $\Q$-homology of a point, Dennis provided in \cite{sullivan2007appendix} a local inductive construction defining a $C_\infty$-coalgebra structure on their cellular chains.
-As proven by Quillen, the quasi-isomorphism type of this $C_\infty$-coalgebra is a complete invariant of the rational homotopy type of simply-connected finite-type spaces.
-To generalize Quillen's equivalence of homotopy categories to one between (not necessarily 1-connected) simplicial sets and complete differential graded (dg) Lie algebras, Buijs, F{\'e}lix, Murillo, and Tanr{\'e} extended non\-/constructively in \cite{buijs2020liemodels} the work of Dennis and Ruth Lawrence \cite{lawrence2014interval} building a natural $C_\infty$-coalgebra structure on the chains of standard simplices specializing to the Lawrence-Sullivan $C_\infty$-coalgebra on the chains of the interval $\gchains(\gcube)$, a structure presented through an explicit formula with much geometric content.
+We reprint a challenge he posted regarding the resulting structure.
+\begin{displaycquote}[p.2]{lawrence2014interval}
+	\textsc{Problem}. Study this free differential Lie algebra attached to a cell complex, determine its topological and geometric meaning as an intrinsic object.
+	Give closed form formulae for the differential and for the induced maps associated to subdivisions.
+\end{displaycquote}
+As proven by Quillen, the quasi-isomorphism type of this $C_\infty$-coalgebra is a complete invariant of the rational homotopy type of simply-connected spaces.
+For the $C_\infty$-coalgebra structure on the interval, Dennis and Ruth Lawrence addressed the above problem introducing a formula for it which can be interpreted in terms of parallel transport of flat connections \cite{lawrence2014interval}, and for which the subdivision map is described by the
+Baker--Campbell--Hausdorff formula.
+
+To generalize Quillen's equivalence of homotopy categories to one between (not necessarily 1-connected) simplicial sets Buijs, F{\'e}lix, Murillo, and Tanr{\'e} extended non\-/constructively in \cite{buijs2020liemodels} the Lawrence-Sullivan structure, building natural $C_\infty$-coalgebra structures on the chains of standard simplices.
+Their construction agrees after linear dualization with the one obtained by Cheng and Getzler in \cite{getzler2008transfering}, where they showed that the Kontsevich--Soibelman sum-over-trees formula defining the transfer of $A_\infty$-algebras through a chain contraction induces a transfer of $C_\infty$-algebras.
+This allowed them to construct a $C_\infty$-algebra structure on simplicial cochains by transferring Dennis' polynomial differential forms through Dupont's contraction.
 
 $C_\infty$-coalgebras are controlled by the operad $\com_\infty$ which is the Koszul resolution of the operad $\com$, i.e., the cobar construction applied to the $\lie$ cooperad, the Koszul dual cooperad of $\com$.
-Another resolution of interest is constructed concatenating the bar and cobar constructions applied to $\com$.
+Another resolution of interest is constructed concatenating the bar and cobar constructions on $\com$.
 As Dennis and Scott Wilson considered, this resolution can be described using rooted trees with vertices colored black or white.
 In \cite{vallette2020higherlietheory}, Daniel Robert-Nicoud and Bruno Vallette studied coalgebras over this resolution which they termed $CC_\infty$-coalgebras.
 They constructed on the chain of standard simplices natural $CC_\infty$-coalgebra structures and described them explicitly using bicolored trees.
 
-The question of generalizing to cellular chains the Lawrence-Sullivan $C_\infty$\-/coalgebra explicitly and minimally remains open despite much progress, see for example
-\cite{lawrence2019triangle, lawrence2021cells} and \cite[\S6.5]{buijs2020liemodels}.
-One possible avenue is to define the tensor product of $C_\infty$-coalgebras and extend monoidally the structure on $\gchains(\gcube)$ to all cubes via the isomorphism $\chains(\cube^n) \cong \gchains(\gcube)^{\ot n}$.
-Recall that $C_\infty$-coalgebras are special cases of $A_\infty$-coalgebras.
+Despite some progress -- \cite{lawrence2019triangle, lawrence2021cells}, \cite[\S6.5]{buijs2020liemodels} -- the problem quoted before remains open.
+One possible avenue to generalize to cubical chains the formula defining the Lawrence-Sullivan $C_\infty$\-/coalgebra on $\gchains(\gcube)$, is to define the tensor product of $C_\infty$-coalgebras and then extend it monoidally to all cubes via the isomorphism $\chains(\cube^n) \cong \gchains(\gcube)^{\ot n}$.
 The monoidal structure on the category of $A_\infty$-coalgebras is defined through a chain approximation to the diagonal of the Stasheff polytopes which is compatible with the operad structure.
 Unfortunately, the resulting $A_\infty$-coalgebra on $\gchains(\gcube)^{\ot 2}$ is not $C_\infty$.
 Either through an algebraic symmetrization of the associahedral diagonal or through the construction of a family of polytopes controlling $C_\infty$-coalgebras this could be corrected, but we do not pursue it here.
@@ -51,17 +64,20 @@ Either through an algebraic symmetrization of the associahedral diagonal or thro
 \subsection*{Integral coefficients}
 
 In \cref{s:integrally} we will study extensions of chain approximations to the diagonal with integral coefficients.
-In contrast to the situation over $\Q$, chain approximations to the diagonal over these coefficients cannot be taken to be symmetric with respect to the transposition of factors, and the resulting coalgebras can be made to be only cocommutative and coassociative up to coherent homotopies, that is to say, provided with the structure of an $E_\infty$-coalgebra.
-More precisely, these are coalgebras over a projective resolution of the operad $\com$ over these coefficients.
+In contrast to the situation over $\Q$, chain approximations to the diagonal over these coefficients cannot be taken to be symmetric with respect to transposition of tensor factors.
+The resulting coalgebras can be made cocommutative and coassociative only up to coherent homotopies, that is to say, provided with the structure of a coalgebra over an $E_\infty$-operad.
 
 The study of $E_\infty$-structures has a long history, where (co)homology operations \cite{steenrod1962cohomology, may1970general}, the recognition of infinite loop spaces \cite{boardman1973homotopy, may1972geometry}, and the complete algebraic representation of the $p$-adic homotopy category \cite{mandell2001padic} are key milestones.
-In this survey we will focus on the first of these areas.
 
 Steenrod was the first to introduce homotopy coherent corrections to the broken symmetry of a chain approximation to the diagonal \cite{steenrod1947products}.
-He did so on simplicial chains over $\Z$ in the form of explicit formulas defining his cup-$i$ coproducts, with \mbox{cup-$0$} the Alexander--Whitney chain approximation to the diagonal.
+He did so on simplicial chains in the form of explicit formulas defining his cup-$i$ coproducts, with \mbox{cup-$0$} agreeing with the Alexander--Whitney chain approximation to the diagonal.
 These coproducts are used to define Steenrod's mod $2$ cohomology operations and to effectively compute them in specific examples.
 
-Explicitly defined $E_\infty$-coalgebra structure on simplicial chains were introduced by McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial} after the so-called ``renaissance'' of operads started in the 1990's.
+Extending the cup-$i$ coproducts of Steenrod, explicitly defined $E_\infty$-coalgebra structure on simplicial chains were introduced by McClure--Smith \cite{mcclure2003multivariable} and Berger\-- Fresse \cite{berger2004combinatorial}.
 It turns out that this structure can be describe solely in terms of the Alexander--Whitney diagonal, the augmentation map and a chain version of the join of simplices \cite{medina2020prop1}.
-This point of view can be abstracted using the language of props, which allows it be applicable in other contexts.
-We will review the resulting model of the $E_\infty$-operad, its action on simplicial and cubical chains, and generalizations of the cup-$i$ coproducts to higher arities \cite{medina2020maysteenrod}.
+This point of view can be abstracted using the language of props, which allows its application to other contexts, for example those defined by cubical chains \cite{medina2021cubical} and the Adams' cobar construction \cite{medina2021cobar}.
+We will review the resulting model of the $E_\infty$-operad, its action on simplicial and cubical chains, and explicit generalizations of the cup-$i$ coproducts to higher arities effectively constructing Steenrod operations at all primes \cite{medina2021maysteenrod}.
+
+We devote the final subsection to one use of cochain level structures in the classification of symmetry protected topological phases of matter.
+
+%We collect in \cref{s:operads and props} some basic terminology from the theory of operads an props.
