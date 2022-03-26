@@ -1,8 +1,10 @@
+% !TEX root = ../template.tex
+
+\usepackage{microtype}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{tikz-cd}
 \usepackage{mathbbol} % changes \mathbb{} and adds more support
-\usepackage[shortcuts]{extdash} % hyphenation, e.g. non\-/constructively
-\usepackage{csquotes}
 
 % bibliography
 \usepackage[
@@ -16,10 +18,6 @@
 
 \renewbibmacro{in:}{}  % don't display "in:" before the journal name
 \AtEveryBibitem{\clearfield{pages}}  % don't show page numbers
-
-\addbibresource{aux/bibliography.bib}
-\addbibresource{aux/usualpapers.bib}
-\addbibresource{aux/mypapers.bib}
 
 \DeclareFieldFormat{title}{\myhref{\mkbibemph{#1}}}
 \DeclareFieldFormat
@@ -69,8 +67,7 @@
 }
 
 \usepackage[capitalize, noabbrev]{cleveref}
-\let\subsectionSymbol\S
-\crefname{subsection}{\subsectionSymbol\!}{subsections}
+\crefname{subsection}{\S\!}{subsections}
 
 % layout
 \addtolength{\textwidth}{0in}

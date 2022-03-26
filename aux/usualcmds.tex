@@ -3,23 +3,39 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
+\newtheorem*{definition*}{Definition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{example*}{Example}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem*{convention*}{Convention}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem*{notation*}{Notation}
+\newtheorem{question}[theorem]{Question}
+\newtheorem*{question*}{Question}
 
 % hyphenation
 \hyphenation{co-chain}
+\hyphenation{co-chains}
+\hyphenation{co-al-ge-bra}
 \hyphenation{co-al-ge-bras}
+\hyphenation{co-bound-ary}
+\hyphenation{co-bound-aries}
 
-% elements
-\newcommand{\id}{\mathsf{id}}
-\newcommand{\M}{\cM}
-\newcommand{\UM}{{\forget(\M)}}
-\newcommand{\MSL}{{\M_{sl}}}
-\newcommand{\USL}{{\forget(\M_{sl})}}
-\newcommand{\Surj}{\cX}
-\newcommand{\BE}{\cE}
+% basics
+\DeclareMathOperator{\face}{d}
+\DeclareMathOperator{\dege}{s}
+\DeclareMathOperator{\bd}{\partial}
+\DeclareMathOperator{\sign}{sign}
+\newcommand{\ot}{\otimes}
+\DeclareMathOperator{\EZ}{EZ}
+\DeclareMathOperator{\AW}{AW}
+\newcommand{\diag}{\mathrm{D}}
+
 
 % sets and spaces
 \newcommand{\N}{\mathbb{N}}
@@ -32,16 +48,15 @@
 \newcommand{\Ftwo}{{\mathbb{F}_2}}
 \newcommand{\Fp}{{\mathbb{F}_p}}
 \newcommand{\Cp}{{\mathbb{C}_p}}
-\newcommand{\graphs}{\mathfrak{G}}
 \newcommand{\gsimplex}{\mathbb{\Delta}}
 \newcommand{\gcube}{\mathbb{I}}
-\newcommand{\scube}[1]{(\triangle^{\!1})^{\times #1}}
 
 % categories
 \newcommand{\Cat}{\mathsf{Cat}}
 \newcommand{\Fun}{\mathsf{Fun}}
 \newcommand{\Set}{\mathsf{Set}}
 \newcommand{\Top}{\mathsf{Top}}
+\newcommand{\CW}{\mathsf{CW}}
 \newcommand{\Ch}{\mathsf{Ch}}
 \newcommand{\simplex}{\triangle}
 \newcommand{\sSet}{\mathsf{sSet}}
@@ -51,8 +66,6 @@
 \newcommand{\coAlg}{\mathsf{coAlg}}
 \newcommand{\biAlg}{\mathsf{biAlg}}
 \newcommand{\sGrp}{\mathsf{sGrp}}
-\newcommand{\Nec}{\mathsf{Nec}}
-\newcommand{\nSet}{\mathsf{nSet}}
 \newcommand{\Mon}{\mathsf{Mon}}
 \newcommand{\SymMod}{\mathsf{Mod}_{\Sym}}
 \newcommand{\SymBimod}{\mathsf{biMod}_{\Sym}}
@@ -63,48 +76,43 @@
 \DeclareMathOperator{\free}{F}
 \DeclareMathOperator{\forget}{U}
 \DeclareMathOperator{\yoneda}{\mathcal{Y}}
-\DeclareMathOperator{\EZ}{EZ}
-\DeclareMathOperator{\sSing}{Sing^{\simplex}}
-\DeclareMathOperator{\cSing}{Sing^{\cube}}
+\DeclareMathOperator{\Sing}{Sing}
 \newcommand{\loops}{\Omega}
 \DeclareMathOperator{\cobar}{\mathbf{\Omega}}
-\DeclareMathOperator{\triangulate}{\mathcal{T}}
-\DeclareMathOperator{\cubify}{\mathcal{U}}
 \DeclareMathOperator{\proj}{\pi}
 \DeclareMathOperator{\incl}{\iota}
 
 % chains
 \DeclareMathOperator{\chains}{N}
-\DeclareMathOperator{\schains}{N^{\simplex}}
-\DeclareMathOperator{\cchains}{N^{\cube}}
 \DeclareMathOperator{\cochains}{N^{\vee}}
-\DeclareMathOperator{\scochains}{N^{\vee}_{\simplex}}
-\DeclareMathOperator{\ccochains}{N^{\vee}_{\cube}}
-\DeclareMathOperator{\Schains}{S}
-\DeclareMathOperator{\sSchains}{S^{\simplex}}
-\DeclareMathOperator{\cSchains}{S^{\cube}}
-\DeclareMathOperator{\sScochains}{S^{\vee}_{\simplex}}
-\DeclareMathOperator{\cScochains}{S^{\vee}_{\cube}}
 \DeclareMathOperator{\gchains}{C}
 
+% pair delimiters (mathtools)
+\DeclarePairedDelimiter\bars{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\angles{\langle}{\rangle}
+\DeclarePairedDelimiter\set{\{}{\}}
+
 % other
+\newcommand{\id}{\mathsf{id}}
 \renewcommand{\th}{\mathrm{th}}
 \newcommand{\op}{\mathrm{op}}
 \DeclareMathOperator*{\colim}{colim}
 \DeclareMathOperator{\coker}{coker}
-\newcommand{\tensor}{\otimes}
-\newcommand{\End}{\mathrm{End}}
+\DeclareMathOperator{\Med}{\mathcal{M}}
 \newcommand{\Hom}{\mathrm{Hom}}
-\newcommand{\bars}[1]{\lvert#1\rvert}
-\newcommand{\norm}[1]{\lVert#1\Vert}
-\newcommand{\angles}[1]{\langle#1\rangle}
-\newcommand{\pairing}[2]{\langle#1, #2\rangle}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\coEnd}{\mathrm{coEnd}}
+\newcommand{\biEnd}{\mathrm{biEnd}}
 \newcommand{\xla}[1]{\xleftarrow{#1}}
 \newcommand{\xra}[1]{\xrightarrow{#1}}
 \newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}
-\newcommand{\pdfEinfty}{\texorpdfstring{${E_\infty}$}{E-infty}}
 
 % letters
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bk}{\mathbb{k}}
+\newcommand{\bF}{\mathbb{F}}
+
 \newcommand{\sA}{\mathsf{A}}
 \newcommand{\sB}{\mathsf{B}}
 \newcommand{\sC}{\mathsf{C}}
@@ -114,19 +122,29 @@
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cD}{\mathcal{D}}
 \newcommand{\cE}{\mathcal{E}}
-
+\newcommand{\cH}{\mathcal{H}}
 \newcommand{\cL}{\mathcal{L}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cN}{\mathcal{N}}
 \newcommand{\cO}{\mathcal{O}}
 \newcommand{\cP}{\mathcal{P}}
-
 \newcommand{\cW}{\mathcal{W}}
 \newcommand{\cX}{\mathcal{X}}
 \newcommand{\cY}{\mathcal{Y}}
 \newcommand{\cZ}{\mathcal{Z}}
 
+\newcommand{\rB}{\mathrm{B}}
+\newcommand{\rC}{\mathrm{C}}
+\newcommand{\rD}{\mathrm{D}}
 \newcommand{\rH}{\mathrm{H}}
+\newcommand{\rK}{\mathrm{K}}
+\newcommand{\rM}{\mathrm{M}}
+\newcommand{\rP}{\mathrm{P}}
+\newcommand{\rT}{\mathrm{T}}
+\newcommand{\rW}{\mathrm{W}}
 
 % comments
 \newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
+
+% pdf
+\newcommand{\pdfEinfty}{\texorpdfstring{E_\infty}{E-infty}}
