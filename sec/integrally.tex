@@ -17,9 +17,10 @@ This chain map, referred to as the \textit{Alexander--Whitney coproduct}, is def
 \end{equation}
 Together with the \textit{augmentation map}
 \begin{equation} \label{e:augmentation map}
-\aug \big( [0,\dots,n] \big) =
+\aug \big( [0, \dots, n] \big) =
 \begin{cases}
-1 & n=0, \\ 0 & n=1,
+1 & n = 0, \\
+0 & n > 0,
 \end{cases}
 \end{equation}
 the Alexander--Whitney coproduct satisfies
@@ -29,7 +30,7 @@ the Alexander--Whitney coproduct satisfies
 \label{e:counital relation}
 (\aug \ot \, \id) \circ \copr = \id = (\id \ot \aug) \circ \copr,
 \end{gather}
-making the chains of any simplicial set $X$ into a natural coassociative counital coalgebra, referred to as the \textit{Alexander--Whitney coalgebra} of $X$.
+making the (normalized) chains $\chains(X)$ of any simplicial set $X$ into a natural coassociative counital coalgebra, referred to as the \textit{Alexander--Whitney coalgebra} of $X$.
 
 We will use the following recursively defined notation for general coalgebras:
 \begin{align*}
@@ -42,7 +43,7 @@ We will use the following recursively defined notation for general coalgebras:
 The \textit{join product} $\ast \colon \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n)$ is the natural degree~$1$ linear map defined by
 \begin{multline}
 \ast \big(\left[v_0, \dots, v_p \right] \ot \left[v_{p+1}, \dots, v_q\right]\big) = \\
-\begin{cases} (-1)^{p} \sign(\pi) \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
+\begin{cases} (-1)^{p} \sign(\pi) \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } \forall\, i \neq j, \ v_i \neq v_j, \\
 \hfil 0 & \text{ if not}, \end{cases}
 \end{multline}
 where $\pi$ is the permutation that orders the vertices.
@@ -164,7 +165,7 @@ Explicitly, for $i \in \{1,2\}$ let $C_i$ be a counital coalgebra, the tensor pr
 \label{e:extension of augmentation}
 \aug(c_1 \ot c_2) &= \aug(c_1) \aug(c_2),
 \end{align}
-where $(23)$ acts by permuting the tensor factors of $C_1 \ot C_1 \ot C_2 \ot C_2$.
+where the symmetric group $\Sym_4$ acts by permuting the tensor factors of $C_1 \ot C_1 \ot C_2 \ot C_2$.
 
 For any cubical set $Y$ the induced structure on its chains agrees with that considered by Serre in \cite{serre1951homologie}, and we refer to it as the \textit{Serre coalgebra} of $Y$.
 
@@ -186,11 +187,11 @@ where the right-hand side can be given more explicitly by
 (-1)^{\bars{a_2} \bars{a_1^\prime}} \big( \aug(a_1^\prime) \, a_1 \ot \ast (a_2 \otimes a_2^\prime)  \, + \, \pr(a_1 \otimes a_1^\prime) \ot \aug(a_2) \, a_2^\prime \big).
 \]
 
-Together, formulas \eqref{e:extension of coproduct}, \eqref{e:extension of augmentation}, and \eqref{e:extension of product} induce on the tensor product of $\Med$-bialgebras the same structure.
+Together, formulae \eqref{e:extension of coproduct}, \eqref{e:extension of augmentation}, and \eqref{e:extension of product} induce on the tensor product of $\Med$-bialgebras the same structure.
 In particular, $\chains(\cube^n) \cong \gchains(\gcube)^{\otimes n}$ is equipped with an $\Med$-bialgebra structure induced from that in the cellular chain on the interval.
 From it, a standard categorical construction -- a Kan extension along the Yoneda embedding~-- provides the chains on any cubical set with the structure of an $E_\infty$-coalgebra extending the Serre coalgebra structure or, more specifically, the structure of a $\UMed$-coalgebra.
 
-Using the monoidal structure on $\Med$-bialgebras we also have a natural $\Med$\-/bialgebra structure on any tensor product $\chains(\simplex^{n_1}) \otimes \dots \otimes \chains(\simplex^{n_k})$ which defines a natural $\UMed$-coalgebra on multisimplicial chains \cite{gugenheim1957supercomplexes, salvatore2020multisimplicial}
+Using the monoidal structure on $\Med$-bialgebras we also have a natural $\Med$-bialgebra structure on any tensor product $\chains(\simplex^{n_1}) \otimes \dots \otimes \chains(\simplex^{n_k})$ which defines a natural $\UMed$-coalgebra on multisimplicial chains \cite{gugenheim1957supercomplexes, salvatore2020multisimplicial}
 
 \subsection{Chain contractions for $\Med$} \label{ss:homology of M}
 
@@ -209,9 +210,9 @@ Let $\eta \in \Med(s,r)$ be a composition of generators and define
 \begin{align*}
 \incl(\eta) & = (\id \ot \eta) \circ \copr, \\
 \proj(\eta) & = (\aug \ot \, \id^{\ot r-1}) \circ \eta, \\
-\sigma(\eta) & = (\pr \ot \, \id^{r-1}) \circ (\id \otimes \eta) \circ \copr.
+\sigma(\eta) & = (\pr \ot \, \id^{\ot r-1}) \circ (\id \otimes \eta) \circ \copr.
 \end{align*}
-This define a chain contraction as above, i.e. they satisfy
+These define a chain contraction as above, i.e. they satisfy
 \[
 \proj \circ \incl - \id = 0
 \qquad
@@ -229,18 +230,18 @@ where
 \begin{equation} \label{e:big chain contraction}
 h = \sigma + \incl \sigma \proj + \dots + \incl^{r} \sigma \proj^{r}.
 \end{equation}
-In particular, given that by construction $\UMed$ is a free $\Sym$-module, these chain contractions shows that $\UMed$ is an $E_\infty$-operad.
+In particular, given that by construction $\UMed(r)$ is a free $\Z[\Sym_r]$-module, these chain contractions shows that $\UMed$ is an $E_\infty$-operad.
 
 \subsection{Steenrod cup-$(r,i)$ products} \label{ss:higher cup-i coproducts}
 
-To generalize the notion of cup-$i$ coproduct structure, consider the minimal free resolution of $\Z$ as a $\Z[\Cyc_r]$-module
+To generalize the notion of cup-$i$ coproduct structure, consider the cyclic group of order $r$ and the minimal free resolution of $\Z$ as a $\Z[\Cyc_r]$-module
 \begin{equation} \label{e:minimal resolution r>2}
 \begin{tikzcd} [column sep = .5cm]
 \mathcal W(r) = \Z[\Cyc_r]\{e_0\} & \arrow[l, "\,T"'] \Z[\Cyc_r]\{e_1\} & \arrow[l, "\,N"'] \Z[\Cyc_r]\{e_2\} & \arrow[l, "\,T"'] \cdots
 \end{tikzcd}
 \end{equation}
 where
-\begin{equation} \label{e:trnaposition and norm maps}
+\begin{equation} \label{e:transposition and norm maps}
 N = 1 + \rho + \dots + \rho^{r-1}, \qquad
 T = \rho - 1,
 \end{equation}
@@ -255,7 +256,7 @@ For $r \geq 2$, let $\psi(r) \colon \cW(r) \to \End(C, C^{\ot r})$ be the $\Cyc_
 \psi(r)(e_{2m}) & = h\,N\,\psi(r)(e_{2m-1}),
 \end{split}
 \end{equation}
-where $T$ and $N$ are explicitly defined in \eqref{e:trnaposition and norm maps} and $h$ in \eqref{e:big chain contraction}.
+where $T$ and $N$ are explicitly defined in \eqref{e:transposition and norm maps} and $h$ in \eqref{e:big chain contraction}.
 The \textit{Steenrod cup-}$(r, i)$ \textit{product} of $C$ is defined for every $r, i \geq 0$ as the image in $\End(C, C^{\ot r})$ of $\psi(e_i)$.
 We remark that for $r = 2$ the resulting cup-$i$ coproduct structure on simplicial chains recovers Steenrod's original construction \eqref{e:cup-i coproducts}.
 
@@ -307,7 +308,6 @@ There are version of these using the $\beta P_s$ operations but we do not write 
 
 Steenrod operations and the above relations are a homological consequence of an $E_\infty$-structure.
 For cellular chains we have seen explicit cochain level constructions, the cup-$(p,i)$ products, inducing the Steenrod operations, and it is desirable to produce cochains enforcing these relations.
-%That is to say, given one or two cocycles construct naturally  a cochain whose coboundary is equal to the difference between the compositions of cup-$(p,i)$ products applied to these cocycles that descend to the Cartan and Adem relations between their represented cohomology classes.
 For the even prime case, Cartan and Adem coboundaries have been constructed effectively in \cite{medina2020cartan} and \cite{medina2021adem} respectively.
 Cartan coboundaries for odd primes can be constructed with the tools already described, but the Adem relation requires additional techniques not yet available.
 
@@ -322,40 +322,8 @@ We think of these as defined on flat space.
 One such system is said to be \textit{gapped} if the spectrum of the Hamiltonian is bounded away from $0$, and two Hamiltonians represent the same \textit{phase} if there exists a deformation between them consisting only of systems that remain bounded from below.
 
 Given a lattice model, using cellular decompositions and state sum type constructions one can often compute the corresponding \textit{partition functions} on spacetime manifolds from actions expressed in terms of gauge fields represented by cochains and cochain level structures: Stiefel--Whitney cochains, cup-$i$ products and Cartan/Adem coboundaries, for example.
-%In certain cases, more general space-time manifolds can be considered by providing them with a cellular decomposition and assembling a lattice model over it.
-%The resulting \textit{partition function} is defined through a state-sum procedure whose
 Subdivision invariance gives rise to a topological quantum field theory, which in the \textit{invertible} case is expected to be controlled by a generalized cohomology theory \cite{xiong2018minimalist, gaiotto2019cohomology, freed2021reflection}.
 The cochain level structure used in the definition of the cellular gauge theory is interpreted from this point of view as describing a cochain model of the Postnikov tower of the relevant spectrum.
 For example, fermionic phases protected by a $G$-symmetry are believed to be classified by applying to $BG$ the Pontryagin dual of spin bordism \cite{kapustin2015cobordism, kapustin2017fermionic}.
 Building on these insights, A. Kapustin proposed a structural ansatz in low dimensions that Greg Brumfiel and John Morgan verified by constructing cochain models of certain connective covers of said spectrum \cite{brumfiel2016pontrjagin, brumfiel2018pontrjagin}.
 The resulting models use cup-$i$ products and Adem coboundaries to represent $k$-invariants and the additive structure of the spectrum.
-%We expect the finer cochain level structures overviewed in earlier sections to be useful for expanding this connection between condensed matter physics and homotopy theory.
-
-%The interplay between condensed matter physics and combinatorial topology is passes naturally through combinatorial topology and we expect that the finer structure encoded on the diagonal approximation of cellular spaces to play a
-%
-%The \textit{partition function} of which, i.e. the $\mathbb{C}$-valued function on closed manifolds, is defined through a state-sum procedure after providing the manifold under consideration with a cellular decomposition and assembling the lattice model on it.
-%The resulting action is expressed in terms of fields represented by cochains and cochain level structure, such as cup-$(p,i)$ products and Cartan/Adem coboundary constructions.
-
-%Classifications of the resulting TQFTs have been proposed for certain type of phases in terms of spectra.
-%The cochain level structure alluded to before is interpreted as encoding the Posnikov tower of the relevant spectrum.
-%For example, fermionic phases in dimensions up to $4$
-
-%We will discuss fermionic SPT phases, with their bosonic counterparts treated similarly with less complications.
-%One could
-%
-%During a talk\footnote{Currently available at \url{ http://scgp.stonybrook.edu/archives/7874}} at the Simons Center for Geometry and Physics, which I image was attended by Dennis, A. Kitaev proposed that the
-%
-%After the work of Wu-Gen, Kitaev, Gaiotto, Kapustin, Thorngren and many other \cite{gaiotto2016spin, kapustin2017fermionic, barkeshli2021classification} it is known that certain topological gauge theories can be described using as fields the cellular cochains of a manifold with values on an $\infty$-group $\mathbb G$, which can be thought of as a Postnikov tower, and employing cochain level structures, such as cup-$i$ products and Cartan/Adem coboundaries, to describe the relevant action functionals.
-%Particularly important for fermionic theories are the Postnikov towers of Spin bordism and its Pontryagin dual.
-%
-%Following a question by Kapustin, Brumfiel and Morgan constructed cochain models of these in dimensions 3 \cite{brumfiel2016pontrjagin} and 4 \cite{brumfiel2018pontrjagin}, see also \cite{brumfiel2018quadratic}.
-%As expected, the cochain description of these uses the same cochain level structures used to define the fields and action functionals consider by physicist in their models of (2+1)D and (3+1)D fermionic topological phases.
-%That is to say, cup-$i$ products and Cartan/Adem coboundaries.
-%
-%Giving the $k$-invariants of the tower in terms of the
-%
-%The work ahead is to expand the collection of homology theories that are currently expressible in terms of cochain approximations through their Postnikov towers, as well as the set of (topologically invariant) action functionals that can be consider over them.
-%Concretely, we expect to improve the approximation of Spin bordism from 4 to 5 dimensions, and eventually to all of them, which will have an impact on the classification and study of fermionic phases of matter as their lower dimensional versions already have.
-%
-%These relations play an important role in the definition of secondary cohomology operations and $\kappa$-invariants of Postnikov towers.
-
