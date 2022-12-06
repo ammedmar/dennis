@@ -5,18 +5,17 @@
 There is a tense trade-off in algebraic topology having roots reaching back to the beginning of its modern form.
 This tension can be illustrated with the concept of cohomology.
 The first approaches, dating back to Poincar\'e, are based on the subdivision of a space into simple contractible pieces.
-These elementary shapes are made to generate a free graded module and their spatial relations define the differential used to compute it.
-This definition makes certain geometric properties of cohomology, for example excision, fairly clear.
+These elementary shapes are made to generate a free graded module whose spatial relations define a differential used to compute cohomology.
+This definition makes fairly clear certain geometric properties of cohomology, for example excision.
 Yet, it is not easy to show that a continuous map of spaces induces a map between their associated cohomologies.
 The functoriality just alluded to is trivial when defining cohomology in terms of homotopy classes of maps to Eilenberg--MacLane spaces, but the passage to the homotopy category erases geometric and combinatorial information and the resulting definition is not well suited for concretely presented spaces.
 
-Cohomology as a graded group is a fairly computable invariant but it has noticeable limitations, for example, $\bC \rP^2$ and $S^2 \vee S^4$ are not distinguished by it.
-This invariant can be refined to a graded ring by endowing cohomology with the cup product.
-In the spectral context, this finer structure is defined through the wedge product of Eilenberg--MacLane spaces, whereas in the cellular setting it is obtained from a choice of
-cellular approximation to the diagonal.
+Cohomology as a graded abelian group is a fairly computable invariant but it has noticeable limitations, for example $\bC \rP^2$ and $S^2 \vee S^4$ are not distinguished by it.
+Cohomology can be refined to a graded ring by endowing it with the cup product, an enhancement that does distinguishes these spaces.
+In the spectral context, the product structure is defined through the wedge product of Eilenberg--MacLane spaces, whereas in the cellular setting it is obtained from a choice of cellular approximation to the diagonal map $X \to X \times X$.
 Such cellular map induces a chain map
 \begin{equation} \label{e:chain diagonal}
-\Delta \colon \gchains(X) \to \gchains(X)^{\otimes 2}
+	\Delta \colon \gchains(X) \to \gchains(X) \ot \gchains(X)
 \end{equation}
 making the cellular chains of $X$ into a (differential graded) coalgebra.
 The fact that the cup product on cohomology, induced by the linear dual of \eqref{e:chain diagonal}, is associative and (graded) commutative hints at the presence of additional structure extending the coalgebra structure on $\gchains(X)$.
@@ -24,14 +23,14 @@ The fact that the cup product on cohomology, induced by the linear dual of \eqre
 In this survey article we will present, from a viewpoint that emphasizes their constructive nature, $C_\infty$ and $E_\infty$ extensions of $\Delta$ over the rationals and integers respectively.
 The resulting algebraic structures control much of the homotopy theory of spaces.
 For example, over the rationals, the quasi-isomorphism type of a $C_\infty$-coalgebra extension of the symmetrization of $\Delta$ determines the $\Q$-completion of $X$ under certain assumptions \cite{quillen1969rational, buijs2020liemodels}.
-Similarly, over the algebraic closure of $\Fp$, the quasi-isomorphism type of the dual of an $E_\infty$-coalgebra extension of $\Delta$ determines the $p$-completion of $X$ provided certain finiteness assumptions are met \cite{mandell2001padic}.
-Both of these statements follow from the stronger fact that the relevant model categories are Quillen equivalent under certain assumptions.
+Whereas over the integers, and under similar assumptions, the quasi-isomorphism type of an $E_\infty$-coalgebra extension of $\Delta$ determines the homotopy type of $X$ \cite{mandell2006homotopy_type}.
+%Both of these statements follow from the stronger fact that the relevant model categories are Quillen equivalent under certain assumptions.
 
 \subsection*{Rational coefficients}
 
 In \cref{s:rationally} we will study extensions of chain approximations to the diagonal with rational coefficients.
 Over this field, a chain approximation to the diagonal can be symmetrized, giving rise to a cocommutative coalgebra.
-This coalgebra cannot be made simultaneously coassociative, but this relation can be imposed in a derive sense through a family of coherent chain homotopies -- which also respect certain symmetry constrains -- and give rise to a so called $C_\infty$-coalgebra structure.
+This coalgebra cannot be made simultaneously coassociative, but this relation can be imposed in a derive sense through a family of coherent chain homotopies -- which also respect certain symmetry constrains -- and give rise to a so-called $C_\infty$-coalgebra structure.
 One can think of $C_\infty$-coalgebras in terms of the somewhat more familiar notion of $A_\infty$-coalgebra where cocommutativity is satisfied strictly.
 As a manifestation of Koszul duality, a $C_\infty$-coalgebra structure on cellular chains is equivalent to a differential on the completion of the free graded Lie algebra generated by the cells shifted downwards in degree by one.
 This relates $C_\infty$-coalgebras to deformation theory, but we do not explore this deep connection here.
@@ -75,7 +74,7 @@ These coproducts are used to define Steenrod's mod $2$ cohomology operations and
 
 Extending the cup-$i$ coproducts of Steenrod, explicitly defined $E_\infty$-coalgebra structure on simplicial chains were introduced by McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial}.
 It turns out that this structure can be describe solely in terms of the Alexander--Whitney diagonal, the augmentation map and a chain version of the join of simplices \cite{medina2020prop1}.
-This point of view can be abstracted using the language of props, which allows its application to other contexts, for example those defined by cubical chains \cite{medina2021cubical} and the Adams' cobar construction \cite{medina2021cobar}.
+This point of view can be abstracted using the language of props, which allows its application to other contexts, for example those defined by cubical chains \cite{medina2022cube_einfty} and the Adams' cobar construction \cite{medina2021cobar}.
 We will review the resulting model of the $E_\infty$-operad, its action on simplicial and cubical chains, and explicit generalizations of the cup-$i$ coproducts to higher arities effectively constructing Steenrod operations at all primes \cite{medina2021may_st}.
 
-We devote the final subsection to one use of cochain level structures in the classification of symmetry protected topological phases of matter.
+We devote the final subsection to overview the use of cochain level structures in the classification of symmetry protected topological phases of matter.
